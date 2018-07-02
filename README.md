@@ -9,7 +9,7 @@ GETTING STARTED
 
 3. Clone the desired branch of this repo to your local machine.
 
-4. Install dependencies by running "npm install" in the project root directory.
+4. Install all dependencies automatically by running "npm install" in the project root directory.
 
 5. Run "vue ui" to start the vue-cli console. Open the project. Run the Serve task. This will serve the project on localhost:8080 with hot reloading.
 
@@ -19,6 +19,7 @@ TODO List
 Test the GETTING STARTED instructions above on a clean machine.
 
 Import bootstrap-vue.
+  npm WARN bootstrap@4.1.1 requires a peer of jquery@1.9.1 - 3 but none is installed. You must install peer dependencies yourself.
 
 Import Wing.
 

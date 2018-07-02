@@ -1,11 +1,15 @@
 import Vue from 'vue'
+import BootstrapVue from 'bootstrap-vue'
 import App from './App.vue'
 import router from './router'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+Vue.use(BootstrapVue);
+Vue.config.productionTip = false
 
 // const wing.base_uri = "https://www.thegamecrafter.com";
 // const StaticTGC_api_key_id = "034F04B4-7329-11E8-BA7A-8BFD93A6FE1D";
-
-Vue.config.productionTip = false
 
 new Vue({
   router,

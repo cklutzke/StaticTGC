@@ -4,6 +4,9 @@
     <p>
       We'll put useful content here soon.
     </p>
+    <b-form @submit="onTest">
+      <b-button type="submit" variant="primary">Test</b-button>
+    </b-form>
   </div>
 </template>
 
@@ -12,6 +15,12 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  methods: {
+    onTest (evt) {
+      evt.preventDefault();
+      alert("Test successful!");
+    }
   }
 }
 </script>
