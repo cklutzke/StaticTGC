@@ -5,18 +5,18 @@ GETTING STARTED
 
 1. Make sure you have current versions of git and npm on your local machine.
 
-2. Clone the desired branch of this repo to your local machine.
+2. Globally install vue-cli 3 (currently in beta) by running "npm install -g @vue/cli". Confirm that you installed version 3 by running "vue -V".
 
-3. Run "npm install" in the project root directory to install dependencies.
+3. Clone the desired branch of this repo to your local machine.
 
-4. Run "vue ui" to start the vue-cli console. [Assumes vui-cli gets installed in step 3. Test this.]
+4. Install dependencies by running "npm install" in the project root directory.
 
-5. 
+5. Run "vue ui" to start the vue-cli console. Open the project. Run the Serve task. This will serve the project on localhost:8080 with hot reloading.
 
 
 TODO List
 
-Replace the favicon.
+Test the GETTING STARTED instructions above on a clean machine.
 
 Import bootstrap-vue.
 
