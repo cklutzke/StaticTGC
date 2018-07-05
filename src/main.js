@@ -8,6 +8,8 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.use(BootstrapVue);
 Vue.config.productionTip = false
 
+import {wing} from "./wing.vue.js";
+
 // const wing.base_uri = "https://www.thegamecrafter.com";
 // const StaticTGC_api_key_id = "034F04B4-7329-11E8-BA7A-8BFD93A6FE1D";
 
