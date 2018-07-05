@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>Hello, {{ helloName }}!</h1>
     <p>
       We'll put useful content here soon.
     </p>
@@ -14,7 +14,11 @@
 export default {
   name: 'HelloWorld',
   props: {
-    msg: String
+    helloName: String
+  },
+  data: function () {
+    return {
+    }
   },
   methods: {
     onTest (evt) {

@@ -1,9 +1,14 @@
 
 import Vue from 'vue';
+import BootstrapVue from 'bootstrap-vue';
 import Vue2Filters from 'vue2-filters';
 import Noty from 'noty';
 import _ from 'lodash';
 import axios from 'axios';
+
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 export {wing};
 
 /*
