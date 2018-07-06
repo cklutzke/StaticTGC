@@ -7,6 +7,8 @@ import _ from 'lodash';
 import axios from 'axios';
 import Qs from 'qs';
 
+Vue.use(BootstrapVue);
+
 export {wing};
 
 /*
