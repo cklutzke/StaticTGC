@@ -2,14 +2,15 @@
 The TGCSession component is responsible for creating session connections to The Game Crafter.
 It controls the tgc_session_id value in localStorage.
 Props: n/a
-TODO: Store, retrieve, and clear the session ID from local storage.
 TODO: Fix warning re: Unknown custom element: <b-progress>
 TODO: Display current session info more appropriately.
+  When logged in, show a "user" glyphicon, followed by user's name, on a dropdown that allows logout.
+  When not logged in, show a Log In link that can be clicked to request credentials.
 TODO: Events: sessionBegin, sessionEnd
  -->
 
 <template>
-  <div>
+  <div id="TGCSession">
     <div id="login">
       <b-form @submit="onLoginSubmit" @reset="onLoginReset" v-show="session.properties.id == null">
         <h1>Log In</h1>
@@ -58,12 +59,12 @@ export default {
           with_credentials: false,
           create_api: "/api/session",
           on_create: function(properties) {
-              // localStorage.setItem("tgc_session_id", properties.id);
+            localStorage.setItem("tgc_session_id", properties.id);
           },
           on_delete: function(properties) {
-              // localStorage.removeItem("tgc_session_id");
+            localStorage.removeItem("tgc_session_id");
           },
-          // fetch_api: "/api/session/" + localStorage.getItem("tgc_session_id"),
+          fetch_api: "/api/session/" + localStorage.getItem("tgc_session_id"),
           params: {
               _include_related_objects: ["user"],
               api_key_id: StaticTGC_api_key_id
@@ -96,6 +97,17 @@ export default {
     logOutClick: function(event) {
         this.session.delete();
     }
+  },
+  mounted() {
+    if (localStorage.getItem("tgc_session_id")) {
+        this.session.fetch();
+    }
   }
 }
 </script>
+
+<style scoped>
+div {
+  text-align: left;
+}
+</style>

@@ -5,6 +5,7 @@ import Vue2Filters from 'vue2-filters';
 import Noty from 'noty';
 import _ from 'lodash';
 import axios from 'axios';
+import Qs from 'qs';
 
 export {wing};
 
