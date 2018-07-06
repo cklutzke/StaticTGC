@@ -15,15 +15,17 @@ GETTING STARTED ---------------------
 
 TODO List --------------------------
 
-Allow the user to log in to TGC
-
-Reconnect to an existing session.
+Complete the TGCSession component
 
 Test the GETTING STARTED instructions above on a clean machine.
 
-CONCERNS ---------------------------
+Put a part in the shopping cart.
 
-Do I also need to import CSS for Noty?
+Browse parts.
+
+Update the page title and meta tags based from router changes. https://alligator.io/vuejs/vue-router-modify-head/
+
+CONCERNS ---------------------------
 
 Watch for issues related to this warning from installing bootstrap-vue:
   npm WARN bootstrap@4.1.1 requires a peer of jquery@1.9.1 - 3 but none is installed. You must install peer dependencies yourself.
