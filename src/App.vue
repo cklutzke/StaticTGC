@@ -6,7 +6,11 @@
     </div>
     <router-view/>
     <br />
-    <TGCSession />
+    <TGCSession
+      v-on:session-begin="onSessionEvent($event)"
+      v-on:session-end="onSessionEvent($event)"
+    >
+    </TGCSession>
   </div>
 </template>
 
@@ -22,6 +26,11 @@ export default {
   },
   components: {
     TGCSession
+  },
+  methods: {
+    onSessionEvent: function(evt) {
+      console.log(evt);
+    }
   }
 }
 

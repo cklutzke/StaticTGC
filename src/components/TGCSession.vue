@@ -2,9 +2,7 @@
 The TGCSession component is responsible for creating session connections to The Game Crafter.
 It controls the tgc_session_id value in localStorage.
 Props: n/a
-TODO: Events: session-begin, session-end
-  Need to emit from session's event handlers, but in those methonds "this" has
-  the context of session, with no way to reference the component and its $event object.
+TEMP: Have the events provide useful information.
 TODO: Allow login via Facebook
 TODO: Allow use to create a new account
  -->
@@ -47,6 +45,9 @@ import {wing} from "../wing.vue.js";
 wing.base_uri = "https://www.thegamecrafter.com";
 const StaticTGC_api_key_id = "034F04B4-7329-11E8-BA7A-8BFD93A6FE1D";
 
+// Provide access to this.$emit within session's on_* events handlers.
+let emitter = null;
+
 export default {
   name: 'TGCSession',
   data: function () {
@@ -59,12 +60,15 @@ export default {
         create_api: "/api/session",
         on_create: function(properties) {
           localStorage.setItem("tgc_session_id", properties.id);
+          emitter.$emit("session-begin", "New session created.");
         },
         fetch_api: "/api/session/" + localStorage.getItem("tgc_session_id"),
         on_fetch: function(properties) {
+          emitter.$emit("session-begin", "Existing session restored.");
         },
         on_delete: function(properties) {
           localStorage.removeItem("tgc_session_id");
+          emitter.$emit("session-end", "Session ended.");
         },
         params: {
           _include_related_objects: ["user"],
@@ -108,6 +112,7 @@ export default {
     }
   },
   mounted() {
+    emitter = this;
     if (localStorage.getItem("tgc_session_id")) {
       this.session.fetch();
     }

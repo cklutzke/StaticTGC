@@ -15,7 +15,7 @@ GETTING STARTED ---------------------
 
 TODO List --------------------------
 
-Complete the TGCSession component
+Update the "Hello, World" display, based on who is logged in.
 
 Test the GETTING STARTED instructions above on a clean machine.
 
