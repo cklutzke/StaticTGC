@@ -2,6 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
+      <router-link to="/meeples">Meeples</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
@@ -9,8 +10,7 @@
     <TGCSession
       v-on:session-begin="onSessionBegin($event)"
       v-on:session-end="onSessionEnd($event)"
-    >
-    </TGCSession>
+    />
   </div>
 </template>
 
@@ -61,4 +61,9 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+li {
+  text-align: left;
+}
+
 </style>

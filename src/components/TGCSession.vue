@@ -53,8 +53,8 @@ export default {
   data: function () {
     return {
       showLoginControls: false,
-      username: "carl@phos.net", // TEMP: This is here for convenience, remove it later.
-      password: "statictgc", // TEMP: This is here for convenience, remove it later.
+      username: "",
+      password: "",
       session: wing.object({
         with_credentials: false,
         create_api: "/api/session",

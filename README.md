@@ -15,6 +15,8 @@ GETTING STARTED ---------------------
 
 TODO List --------------------------
 
+Display different parts based on router data.
+
 Put a part in the shopping cart.
 
 Browse parts.
