@@ -7,17 +7,13 @@ GETTING STARTED ---------------------
 
 2. Globally install vue-cli 3 (currently in beta) by running "npm install -g @vue/cli". Confirm that you installed version 3 by running "vue -V".
 
-3. Clone the desired branch of this repo to your local machine.
+3. Clone this repo to your local machine. Checkout the latest branch: currently this is [session].
 
 4. Install all dependencies automatically by running "npm install" in the project root directory.
 
-5. Run "vue ui" to start the vue-cli console. Open the project. Run the Serve task. This will serve the project on localhost:8080 with hot reloading.
+5. Run "vue ui" to start the vue-cli console. Import the project. Run the Serve task. This will serve the project on localhost:8080 with hot reloading.
 
 TODO List --------------------------
-
-Update the "Hello, World" display, based on who is logged in.
-
-Test the GETTING STARTED instructions above on a clean machine.
 
 Put a part in the shopping cart.
 
