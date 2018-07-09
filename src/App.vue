@@ -7,8 +7,8 @@
     <router-view/>
     <br />
     <TGCSession
-      v-on:session-begin="onSessionEvent($event)"
-      v-on:session-end="onSessionEvent($event)"
+      v-on:session-begin="onSessionBegin($event)"
+      v-on:session-end="onSessionEnd($event)"
     >
     </TGCSession>
   </div>
@@ -28,8 +28,11 @@ export default {
     TGCSession
   },
   methods: {
-    onSessionEvent: function(evt) {
-      console.log(evt);
+    onSessionBegin: function(evt) {
+      console.log("Session beginning for " + evt.user.display_name);
+    },
+    onSessionEnd: function(evt) {
+      console.log("Session ended.");
     }
   }
 }

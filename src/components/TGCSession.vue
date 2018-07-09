@@ -60,15 +60,15 @@ export default {
         create_api: "/api/session",
         on_create: function(properties) {
           localStorage.setItem("tgc_session_id", properties.id);
-          emitter.$emit("session-begin", "New session created.");
+          emitter.$emit("session-begin", properties);
         },
         fetch_api: "/api/session/" + localStorage.getItem("tgc_session_id"),
         on_fetch: function(properties) {
-          emitter.$emit("session-begin", "Existing session restored.");
+          emitter.$emit("session-begin", properties);
         },
         on_delete: function(properties) {
           localStorage.removeItem("tgc_session_id");
-          emitter.$emit("session-end", "Session ended.");
+          emitter.$emit("session-end", "");
         },
         params: {
           _include_related_objects: ["user"],
