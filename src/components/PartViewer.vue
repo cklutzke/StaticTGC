@@ -1,7 +1,8 @@
 <template>
   <div>
-    <h1>Selected part is....</h1>
-    <p>{{ partId }}</p>
+    <p>Selected part ID is {{ partId }}</p>
+    <p>Returned part ID is {{ part.properties.id }}</p>
+    <p>Returned part name is {{ part.properties.name }}</p>
   </div>
 </template>
 
@@ -18,9 +19,15 @@ export default {
   data: function () {
     return {
       part: wing.object ({
-        fetch_api: "/api/part/" + this.partId,
         with_credentials: false
       })
+    }
+  },
+  watch: {
+    partId: function (val) {
+      this.part.fetch_api = "/api/part/" + this.partId;
+      console.log(this.part.fetch_api);
+      this.part.fetch();
     }
   }
 }
