@@ -6,8 +6,7 @@
           <MeepleSelector />
         </b-col>
         <b-col>
-          <h1>Selected meeple is....</h1>
-          <p>{{ $route.params.id }}</p>
+          <PartViewer />
         </b-col>
       </b-row>
     </b-container>
@@ -17,11 +16,13 @@
 <script>
 // @ is an alias to /src
 import MeepleSelector from '@/components/MeepleSelector.vue'
+import PartViewer from '@/components/PartViewer.vue'
 
 export default {
   name: 'MeepleShopper',
   components: {
-    MeepleSelector
+    MeepleSelector,
+    PartViewer
   },
   data: function () {
     return {
