@@ -17,9 +17,13 @@ TODO List --------------------------
 
 Display different parts based on router data.
 
+Browse parts via Algolia Vue controls.
+
 Put a part in the shopping cart.
 
-Browse parts.
+Resize and rearrange components sensibly for different screen sizes.
+
+Enable various account operations: create account, view receipts, etc.
 
 Update the page title and meta tags based from router changes. https://alligator.io/vuejs/vue-router-modify-head/
 

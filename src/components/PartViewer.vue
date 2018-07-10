@@ -1,10 +1,59 @@
+
+<!-- TODO: Ensure the part is displayed if the user pastes in the URL or refreshes the page. -->
+
 <template>
-  <div>
-    // TODO: Show useful info about the part.
-    // TODO: Ensure the part is displayed if the user pastes in the URL or refreshes the page.
-    <p>Selected part ID is {{ partId }}</p>
-    <p>Returned part ID is {{ part.properties.id }}</p>
-    <p>Returned part name is {{ part.properties.name }}</p>
+  <div v-show="partId">
+    <h1>{{ part.properties.name}}</h1>
+    <b-container>
+        <b-img :src="'http:' + part.properties.preview_uri" :alt="'Photo of ' + part.properties.name" fluid />
+    </b-container>
+    <p>{{ part.properties.description }}</p>
+    <!-- Youtube URLs must be in this "/embed/" format - see https://stackoverflow.com/questions/9934944 -->
+    <!-- QUESTION: What is with the violations this video is causing? -->
+    <!-- <b-embed type="iframe" aspect="16by9" allowfullscreen
+           :src="'https://www.youtube.com/embed/' + part.properties.youtube_video_id"
+    /> -->
+    <b-button-group>
+      <!-- IDEA: Any part like this that can be purchased in bulk
+      should probably have controls to select the quantity to
+      be ordered, which could in turn affect the subtotal price. -->
+      <b-button variant="primary" @click="buyClick">
+        <span class="fas fa-cart-plus"></span>
+        Buy for {{ "$" + Number(part.properties.price).toFixed(2) }}
+      </b-button>
+      <!-- QUESTION: How do I insert the Font Awesome gift icon (fa-gift) before this dropwdown button's text property? -->
+      <!--    See https://fontawesome.com/v4.7.0/examples/#bootstrap -->
+      <!-- IDEA: Make this dropdown do something useful. -->
+      <b-dropdown text="Add to Wish List" :disabled = "true">
+        <b-dropdown-item>
+          New wish list
+        </b-dropdown-item>
+      </b-dropdown>
+    </b-button-group>
+    <template>
+      <b-table
+        :items="vitalsTableItems"
+        :fields='[
+          {key: "key", label: "Vitals"},
+          {key: "value1", label: ""},
+          {key: "value2", label: ""}
+        ]'>
+      </b-table>
+    </template>
+    <template>
+      <b-table
+        :items="priceTableItems"
+        :fields='[
+          {key: "range", label: "Bulk Pricing"},
+          {key: "ea", label: ""}
+        ]'>
+      </b-table>
+    </template>
+    <p>Last Price Change: {{ part.properties.last_price_change === undefined ?
+      "" : part.properties.last_price_change.split(" ")[0] }}</p>
+    <h2>TODO: Other [Wood Meeples]</h2>
+    <h2>TODO: You Might Also Like</h2>
+    <h2>TODO: Games Using This</h2>
   </div>
 </template>
 
@@ -30,6 +79,33 @@ export default {
       this.onLoadPart();
     }
   },
+  computed: {
+    priceTableItems: function () {
+        let partProperties = this.part.properties;
+        return [
+            {range: "1-9", ea: "$" + partProperties.price + " ea"},
+            {range: "10-99", ea: "$" + partProperties.price_10 + " ea"},
+            {range: "100-999", ea: "$" + partProperties.price_100 + " ea"},
+            {range: "1000+", ea: "$" + partProperties.price_1000 + " ea"}
+        ];
+    },
+    // IDEA: Add Color, Category, and Material. With links to other matching parts.
+    // IDEA: Provide dropdowns to select different colors, materials, and sizes.
+    vitalsTableItems: function () {
+        let partProperties = this.part.properties;
+        return [
+            {key: "Quantity in Stock", value1: partProperties.quantity, value2: ""},
+            {key: "Weight", value1: Number(partProperties.weight).toFixed(2) + " oz",
+                value2: ouncesToGrams(partProperties.weight)},
+            {key: "Height", value1: Number(partProperties.height).toFixed(2) + " in",
+                value2: inchesToMm(partProperties.height)},
+            {key: "Width", value1: Number(partProperties.width).toFixed(2) + " in",
+                value2: inchesToMm(partProperties.width)},
+            {key: "Depth", value1: Number(partProperties.depth).toFixed(2) + " in",
+                value2: inchesToMm(partProperties.depth)}
+        ];
+    }
+  },
   methods: {
     onLoadPart: function () {
       this.part = wing.object ({
@@ -38,7 +114,29 @@ export default {
       });
 
       this.part.fetch();
+    },
+    buyClick: function() {
+      // TODO:
     }
   }
 }
+
+function ouncesToGrams(ounces) {
+    // Returns a string in the format "#.## g" or an empty string.
+    if (isNaN(ounces)) {
+        return "";
+    } else {
+        return (Number(ounces) * 28.35).toFixed(2) + " g";
+    }
+}
+
+function inchesToMm(inches) {
+    // Returns a string in the format "#.## mm" or an empty string.
+    if (isNaN(inches)) {
+        return "";
+    } else {
+        return (Number(inches) * 25.4).toFixed(2) + " mm";
+    }
+}
+
 </script>
