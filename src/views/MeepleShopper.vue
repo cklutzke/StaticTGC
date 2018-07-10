@@ -6,7 +6,7 @@
           <MeepleSelector />
         </b-col>
         <b-col>
-          <PartViewer />
+          <PartViewer :partId="partId" />
         </b-col>
       </b-row>
     </b-container>
@@ -20,18 +20,18 @@ import PartViewer from '@/components/PartViewer.vue'
 
 export default {
   name: 'MeepleShopper',
+  props: [
+    'partId'
+  ],
   components: {
     MeepleSelector,
     PartViewer
   },
   data: function () {
     return {
-      meepleName: "[name]",
-      meepleId: "[id]"
     }
   },
   methods: {
-
   }
 }
 </script>

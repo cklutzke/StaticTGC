@@ -24,9 +24,10 @@ export default new Router({
       component: MeepleShopper
     },
     {
-      path: '/part/:id',
+      path: '/part/:partId',
       name: 'part',
-      component: MeepleShopper
+      component: MeepleShopper,
+      props: true
     }
   ]
 })
