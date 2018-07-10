@@ -15,11 +15,13 @@ GETTING STARTED ---------------------
 
 TODO List --------------------------
 
-Display different parts based on router data.
-
-Browse parts via Algolia Vue controls.
+Fix defect on PartViewer when page is refreshed.
 
 Put a part in the shopping cart.
+
+Allow a customer to complete a purchase.
+
+Browse parts via Algolia Vue controls.
 
 Resize and rearrange components sensibly for different screen sizes.
 
