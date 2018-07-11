@@ -6,7 +6,12 @@
           <MeepleSelector />
         </b-col>
         <b-col>
-          <TGCPartViewer :partId="partId" />
+          <TGCPartViewer :partId="partId"
+            v-on:part-buy="onPartBuy($event)"
+          />
+        </b-col>
+        <b-col>
+          <TGCCart />
         </b-col>
       </b-row>
     </b-container>
@@ -17,6 +22,7 @@
 // @ is an alias to /src
 import MeepleSelector from '@/components/MeepleSelector.vue'
 import TGCPartViewer from '@/components/TGCPartViewer.vue'
+import TGCCart from '@/components/TGCCart.vue'
 
 export default {
   name: 'MeepleShopper',
@@ -25,13 +31,17 @@ export default {
   ],
   components: {
     MeepleSelector,
-    TGCPartViewer
+    TGCPartViewer,
+    TGCCart
   },
   data: function () {
     return {
     }
   },
   methods: {
+    onPartBuy: function (event) {
+      console.log(event.sku_id);
+    }
   }
 }
 </script>

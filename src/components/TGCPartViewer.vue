@@ -121,7 +121,10 @@ export default {
       }
     },
     buyClick: function() {
-      // TODO:
+      this.$emit("part-buy", {
+        sku_id: this.part.properties.sku_id,
+        quantity: 1
+      })
     }
   },
   mounted() {

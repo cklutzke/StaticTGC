@@ -15,6 +15,13 @@ GETTING STARTED ---------------------
 
 TODO List --------------------------
 
+Move the session to the App.vue object.
+
+Change component names and prop names to use kebab-case.
+  https://vuejs.org/v2/guide/components-props.html
+
+Put the cart in the App.vue object.
+
 Put a part in the shopping cart.
 
 Allow a customer to complete a purchase.
@@ -24,6 +31,8 @@ Browse parts via Algolia Vue controls.
 Resize and rearrange components sensibly for different screen sizes.
 
 Enable various account operations: create account, view receipts, etc.
+
+Add page footer links.
 
 Update the page title and meta tags based from router changes. https://alligator.io/vuejs/vue-router-modify-head/
 
