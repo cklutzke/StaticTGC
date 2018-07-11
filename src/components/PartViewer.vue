@@ -1,7 +1,6 @@
 
 <!--
 Eliminate defects:
-  TODO: Ensure the part is displayed if the user pastes in the URL or refreshes the page.
 
 Replicate existing TGC functionality:
   TODO: Allow the user to add an item to the cart.
@@ -112,16 +111,21 @@ export default {
   },
   methods: {
     onLoadPart: function () {
-      this.part = wing.object ({
-        with_credentials: false,
-        fetch_api: "/api/part/" + this.partId
-      });
+      if (this.partId) {
+        this.part = wing.object ({
+          with_credentials: false,
+          fetch_api: "/api/part/" + this.partId
+        });
 
-      this.part.fetch();
+        this.part.fetch();
+      }
     },
     buyClick: function() {
       // TODO:
     }
+  },
+  mounted() {
+    this.onLoadPart();
   }
 }
 

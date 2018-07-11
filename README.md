@@ -15,8 +15,6 @@ GETTING STARTED ---------------------
 
 TODO List --------------------------
 
-Fix defect on PartViewer when page is refreshed.
-
 Put a part in the shopping cart.
 
 Allow a customer to complete a purchase.
