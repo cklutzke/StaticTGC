@@ -2,6 +2,7 @@
 <!--
 
 Eliminate defects:
+TODO: This is a mess. Store the cart inside App.vue instead of here.
 
 Replicate existing TGC functionality:
 TODO: Create and display a cart when an item is added.

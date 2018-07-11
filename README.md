@@ -15,8 +15,7 @@ GETTING STARTED ---------------------
 
 TODO List --------------------------
 
-Change component names and prop names to use kebab-case in HTML templates.
-  https://vuejs.org/v2/guide/components-props.html
+Create a new branch for cart handling.
 
 Put the cart in the App.vue object.
 
@@ -25,6 +24,8 @@ Put a part in the shopping cart.
 Allow a customer to complete a purchase.
 
 Browse parts via Algolia Vue controls.
+
+Create an appropriate landing page.
 
 Resize and rearrange components sensibly for different screen sizes.
 

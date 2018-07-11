@@ -3,15 +3,15 @@
     <b-container>
       <b-row>
         <b-col>
-          <MeepleSelector />
+          <meeple-selector />
         </b-col>
         <b-col>
-          <TGCPartViewer :partId="partId"
+          <tgc-part-viewer :part-id="partId"
             v-on:part-buy="onPartBuy($event)"
           />
         </b-col>
         <b-col>
-          <TGCCart />
+          <tgc-cart />
         </b-col>
       </b-row>
     </b-container>
@@ -30,9 +30,9 @@ export default {
     'partId'
   ],
   components: {
-    MeepleSelector,
-    TGCPartViewer,
-    TGCCart
+    'meeple-selector': MeepleSelector,
+    'tgc-part-viewer': TGCPartViewer,
+    'tgc-cart': TGCCart
   },
   data: function () {
     return {

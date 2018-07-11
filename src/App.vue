@@ -7,7 +7,7 @@
     </div>
     <router-view/>
     <br />
-    <TGCSession :user-name="userName"
+    <tgc-session :user-name="userName"
       @login="onLogin($event)"
       @logout="onLogout($event)"
     />
@@ -25,7 +25,7 @@ import TGCSession from '@/components/TGCSession.vue'
 export default {
   name: 'App',
   components: {
-    TGCSession
+    'tgc-session': TGCSession
   },
   data() {
     return {
@@ -34,15 +34,12 @@ export default {
         create_api: "/api/session",
         on_create: function(properties) {
           localStorage.setItem("tgc_session_id", properties.id);
-          console.log("Created session: " + properties.id);
         },
         fetch_api: "/api/session/" + localStorage.getItem("tgc_session_id"),
         on_fetch: function(properties) {
-          console.log("Restored session: " + properties.id);
         },
         on_delete: function(properties) {
           localStorage.removeItem("tgc_session_id");
-          console.log("Ended session: " + properties.id);
         },
         params: {
           _include_related_objects: ["user"],
