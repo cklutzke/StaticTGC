@@ -15,9 +15,7 @@ GETTING STARTED ---------------------
 
 TODO List --------------------------
 
-Move the session to the App.vue object.
-
-Change component names and prop names to use kebab-case.
+Change component names and prop names to use kebab-case in HTML templates.
   https://vuejs.org/v2/guide/components-props.html
 
 Put the cart in the App.vue object.

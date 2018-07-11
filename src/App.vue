@@ -7,32 +7,76 @@
     </div>
     <router-view/>
     <br />
-    <TGCSession
-      v-on:session-begin="onSessionBegin($event)"
-      v-on:session-end="onSessionEnd($event)"
+    <TGCSession :user-name="userName"
+      @login="onLogin($event)"
+      @logout="onLogout($event)"
     />
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
+import {wing} from "./wing.vue.js";
+wing.base_uri = "https://www.thegamecrafter.com";
+const StaticTGC_api_key_id = "034F04B4-7329-11E8-BA7A-8BFD93A6FE1D";
+
 import TGCSession from '@/components/TGCSession.vue'
 
 export default {
   name: 'App',
-  data() {
-    return {
-    }
-  },
   components: {
     TGCSession
   },
-  methods: {
-    onSessionBegin: function(evt) {
-      console.log("Session beginning for " + evt.user.display_name);
+  data() {
+    return {
+      session: wing.object({
+        with_credentials: false,
+        create_api: "/api/session",
+        on_create: function(properties) {
+          localStorage.setItem("tgc_session_id", properties.id);
+          console.log("Created session: " + properties.id);
+        },
+        fetch_api: "/api/session/" + localStorage.getItem("tgc_session_id"),
+        on_fetch: function(properties) {
+          console.log("Restored session: " + properties.id);
+        },
+        on_delete: function(properties) {
+          localStorage.removeItem("tgc_session_id");
+          console.log("Ended session: " + properties.id);
+        },
+        params: {
+          _include_related_objects: ["user"],
+          api_key_id: StaticTGC_api_key_id
+        }
+      })
+    }
+  },
+  computed: {
+    loggedIn: function() {
+      return (this.session.properties.id != null);
     },
-    onSessionEnd: function(evt) {
-      console.log("Session ended.");
+    userName: function() {
+      if (this.session.properties.user === undefined) {
+        return "";
+      } else {
+        return this.session.properties.user.display_name;
+      }
+    }
+  },
+  methods: {
+    onLogin: function(event) {
+      this.session.create({
+        username: event.username,
+        password: event.password
+      });
+    },
+    onLogout: function(event) {
+      this.session.delete();
+    }
+  },
+  mounted() {
+    if (localStorage.getItem("tgc_session_id")) {
+      this.session.fetch();
     }
   }
 }

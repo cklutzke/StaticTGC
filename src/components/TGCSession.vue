@@ -1,10 +1,7 @@
 <!--
-The TGCSession component is responsible for creating session connections to The Game Crafter.
-It controls the tgc_session_id value in localStorage.
-Props: n/a
-TEMP: Have the events provide useful information.
+The TGCSession component provides controls for the user to start and end a session.
 TODO: Allow login via Facebook
-TODO: Allow use to create a new account
+TODO: Allow user to create a new account
  -->
 
 <template>
@@ -41,64 +38,27 @@ TODO: Allow use to create a new account
 
 <script>
 import Vue from 'vue';
-import {wing} from "../wing.vue.js";
-wing.base_uri = "https://www.thegamecrafter.com";
-const StaticTGC_api_key_id = "034F04B4-7329-11E8-BA7A-8BFD93A6FE1D";
-
-// Provide access to this.$emit within session's on_* events handlers.
-let emitter = null;
 
 export default {
   name: 'TGCSession',
+  props: {
+    userName: String
+  },
   data: function () {
     return {
       showLoginControls: false,
-      username: "",
-      password: "",
-      session: wing.object({
-        with_credentials: false,
-        create_api: "/api/session",
-        on_create: function(properties) {
-          localStorage.setItem("tgc_session_id", properties.id);
-          emitter.$emit("session-begin", properties);
-        },
-        fetch_api: "/api/session/" + localStorage.getItem("tgc_session_id"),
-        on_fetch: function(properties) {
-          emitter.$emit("session-begin", properties);
-        },
-        on_delete: function(properties) {
-          localStorage.removeItem("tgc_session_id");
-          emitter.$emit("session-end", "");
-        },
-        params: {
-          _include_related_objects: ["user"],
-          api_key_id: StaticTGC_api_key_id
-        }
-      })
+      username: "carl@phos.net", //TEMP
+      password: "statictgc"
     }
   },
   computed: {
     loggedIn: function() {
-      return (this.session.properties.id != null);
-    },
-    userName: function() {
-      if (this.session.properties.user === undefined) {
-        return "Log In";
-      } else {
-        return this.session.properties.user.display_name;
-      }
+      return (this.userName != "");
     }
   },
   methods: {
     onShowLogin (evt) {
       this.showLoginControls = true;
-    },
-    onLoginSubmit (evt) {
-      evt.preventDefault();
-      this.session.create({
-        username: this.username,
-        password: this.password
-      });
     },
     onLoginReset (evt) {
       evt.preventDefault();
@@ -106,15 +66,16 @@ export default {
       this.password = "";
       this.showLoginControls = false;
     },
+    onLoginSubmit (evt) {
+      evt.preventDefault();
+      this.$emit("login", {
+        username: this.username,
+        password: this.password
+      })
+    },
     logOutClick (evt) {
-      this.session.delete();
+      this.$emit("logout");
       this.showLoginControls = false;
-    }
-  },
-  mounted() {
-    emitter = this;
-    if (localStorage.getItem("tgc_session_id")) {
-      this.session.fetch();
     }
   }
 }
