@@ -6,7 +6,7 @@
           <MeepleSelector />
         </b-col>
         <b-col>
-          <PartViewer :partId="partId" />
+          <TGCPartViewer :partId="partId" />
         </b-col>
       </b-row>
     </b-container>
@@ -16,7 +16,7 @@
 <script>
 // @ is an alias to /src
 import MeepleSelector from '@/components/MeepleSelector.vue'
-import PartViewer from '@/components/PartViewer.vue'
+import TGCPartViewer from '@/components/TGCPartViewer.vue'
 
 export default {
   name: 'MeepleShopper',
@@ -25,7 +25,7 @@ export default {
   ],
   components: {
     MeepleSelector,
-    PartViewer
+    TGCPartViewer
   },
   data: function () {
     return {
