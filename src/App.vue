@@ -45,6 +45,16 @@ export default {
           _include_related_objects: ["user"],
           api_key_id: StaticTGC_api_key_id
         }
+      }),
+      cart: wing.object({
+        // We never explicitly create a cart. It's created the first time the
+        // user adds an item, and then we put the ID in localStorage.
+        with_credentials: false,
+        fetch_api : "/api/cart/" + localStorage.getItem("tgc_cart_id"),
+        params: {
+          _include_related_objects: ["items"],
+          api_key_id: StaticTGC_api_key_id
+        }
       })
     }
   },
@@ -70,10 +80,33 @@ export default {
     onLogout: function(event) {
       this.session.delete();
     }
+    // addItem: function(sku_id, quantity) {
+    //   this.sku_id = sku_id;
+    //   this.quantity = quantity;
+    // }
+    // buyClick: function(event) {
+    //     let cartId = localStorage.getItem("tgc_cart_id");
+    //     if (!cartId) {
+    //         cartId = "";
+    //     }
+    //     this.cart.call('POST', "/api/cart/" + cartId + "/sku/" +
+    //         this.product.properties.sku_id, {quantity : 1},
+    //         { on_success : function(properties) {
+    //             wing.success('Added!');
+    //             if (!localStorage.getItem("tgc_cart_id")) {
+    //                 localStorage.setItem("tgc_cart_id", properties.id);
+    //             };
+    //         }
+    //     });
+    // }
   },
   mounted() {
     if (localStorage.getItem("tgc_session_id")) {
       this.session.fetch();
+    }
+
+    if (localStorage.getItem("tgc_cart_id")) {
+      this.cart.fetch();
     }
   }
 }

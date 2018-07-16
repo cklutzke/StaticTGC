@@ -24,7 +24,8 @@ Add improvements:
         <b-img :src="'http:' + part.properties.preview_uri" :alt="'Photo of ' + part.properties.name" fluid />
     </b-container>
     <p>{{ part.properties.description }}</p>
-    <!-- <b-embed type="iframe" aspect="16by9" allowfullscreen
+    <!-- TEMP: This generates a lot of noise that I don't want to look at right now. Uncomment it later.
+    <b-embed type="iframe" aspect="16by9" allowfullscreen
            :src="'https://www.youtube.com/embed/' + part.properties.youtube_video_id"
     /> -->
     <b-button-group>

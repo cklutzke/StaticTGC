@@ -15,10 +15,6 @@ GETTING STARTED ---------------------
 
 TODO List --------------------------
 
-Create a new branch for cart handling.
-
-Put the cart in the App.vue object.
-
 Put a part in the shopping cart.
 
 Allow a customer to complete a purchase.
