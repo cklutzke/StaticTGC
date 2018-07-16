@@ -15,8 +15,6 @@ GETTING STARTED ---------------------
 
 TODO List --------------------------
 
-Remember and display the contents of the shopping cart.
-
 Browse parts via Algolia Vue controls.
 
 Allow a customer to complete a purchase.

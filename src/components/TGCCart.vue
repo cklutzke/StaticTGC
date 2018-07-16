@@ -14,8 +14,7 @@ Add improvements:
 <template>
   <div>
     <h1>Shopping Cart</h1>
-    <p>Cart ID: {{ cartId }}</p>
-    <!-- <div class="table-responsive">
+    <div class="table-responsive">
       <table class="table">
         <thead>
         <tr>
@@ -32,7 +31,7 @@ Add improvements:
           </tr>
         </tbody>
       </table>
-    </div> -->
+    </div>
   </div>
 </template>
 
