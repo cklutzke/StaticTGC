@@ -5,13 +5,13 @@
         <b-col>
           <meeple-selector />
         </b-col>
-        <b-col>
+        <b-col v-show="partId">
           <tgc-part-viewer :part-id="partId"
             @tgc-part-buy="onPartBuy($event)"
           />
         </b-col>
-        <b-col>
-          <tgc-cart />
+        <b-col v-show="cart.properties.id">
+          <tgc-cart :cart="cart" />
         </b-col>
       </b-row>
     </b-container>
@@ -27,7 +27,8 @@ import TGCCart from '@/components/TGCCart.vue'
 export default {
   name: 'MeepleShopper',
   props: [
-    'partId'
+    'partId',
+    'cart'
   ],
   components: {
     'meeple-selector': MeepleSelector,

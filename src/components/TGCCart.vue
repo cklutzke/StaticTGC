@@ -4,8 +4,6 @@
 Eliminate defects:
 
 Replicate existing TGC functionality:
-TODO: Restore a cart when reconnecting.
-TODO: Display the cart column only when there's a cart.
 TODO: Display the cart contents in a Bootstrap-Vue table.
 TODO: Display the count of cart items in all views.
 
@@ -52,10 +50,10 @@ export default {
   },
   computed: {
     cartId: function() {
-      if (this.cart) {
+      if (this.cart.properties.id) {
         return this.cart.properties.id;
       } else {
-        return "no cart";
+        return "no cart"; // TEMP
       }
     }
   },

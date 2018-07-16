@@ -6,6 +6,7 @@
       <router-link to="/about">About</router-link>
     </div>
     <router-view
+      :cart="cart"
       @tgc-part-buy="onPartBuy($event)"
     />
     <br />

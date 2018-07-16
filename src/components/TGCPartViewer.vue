@@ -17,7 +17,7 @@ Add improvements:
 -->
 
 <template>
-  <div v-show="partId">
+  <div>
     <h1>{{ part.properties.name}}</h1>
     <b-container>
         <b-img :src="'http:' + part.properties.preview_uri" :alt="'Photo of ' + part.properties.name" fluid />

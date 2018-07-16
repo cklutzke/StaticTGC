@@ -21,7 +21,8 @@ export default new Router({
     {
       path: '/meeples',
       name: 'meeples',
-      component: MeepleShopper
+      component: MeepleShopper,
+      props: true
     },
     {
       path: '/part/:partId',

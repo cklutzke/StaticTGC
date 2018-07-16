@@ -17,9 +17,9 @@ TODO List --------------------------
 
 Remember and display the contents of the shopping cart.
 
-Allow a customer to complete a purchase.
-
 Browse parts via Algolia Vue controls.
+
+Allow a customer to complete a purchase.
 
 Create an appropriate landing page.
 
@@ -28,6 +28,8 @@ Resize and rearrange components sensibly for different screen sizes.
 Enable various account operations: create account, view receipts, etc.
 
 Add page footer links.
+
+Eliminate flashes of unstyled / unarranged content.
 
 Update the page title and meta tags based from router changes. https://alligator.io/vuejs/vue-router-modify-head/
 
