@@ -15,7 +15,7 @@ GETTING STARTED ---------------------
 
 TODO List --------------------------
 
-Put a part in the shopping cart.
+Remember and display the contents of the shopping cart.
 
 Allow a customer to complete a purchase.
 

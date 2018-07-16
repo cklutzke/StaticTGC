@@ -4,7 +4,6 @@
 Eliminate defects:
 
 Replicate existing TGC functionality:
-TODO: Create a cart when an item is added.
 TODO: Restore a cart when reconnecting.
 TODO: Display the cart column only when there's a cart.
 TODO: Display the cart contents in a Bootstrap-Vue table.

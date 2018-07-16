@@ -7,7 +7,7 @@
         </b-col>
         <b-col>
           <tgc-part-viewer :part-id="partId"
-            v-on:part-buy="onPartBuy($event)"
+            @tgc-part-buy="onPartBuy($event)"
           />
         </b-col>
         <b-col>
@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     onPartBuy: function (event) {
-      console.log(event.sku_id);
+      this.$emit("tgc-part-buy", event);
     }
   }
 }

@@ -5,7 +5,9 @@
       <router-link to="/meeples">Meeples</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <router-view
+      @tgc-part-buy="onPartBuy($event)"
+    />
     <br />
     <tgc-session :user-name="userName"
       @login="onLogin($event)"
@@ -79,26 +81,26 @@ export default {
     },
     onLogout: function(event) {
       this.session.delete();
+    },
+    onPartBuy: function(event) {
+      // If we already have a cart ID, use it.
+      let cartId = localStorage.getItem("tgc_cart_id");
+      if (!cartId) {
+        cartId = "";
+      }
+
+      this.cart.call('POST', "/api/cart/" + cartId + "/sku/" +
+        event.sku_id, {quantity : event.quantity},
+          { on_success : function(properties) {
+            wing.success('Added!');
+
+            // If we don't already have a cart ID, store the one we just got.
+            if (!localStorage.getItem("tgc_cart_id")) {
+              localStorage.setItem("tgc_cart_id", properties.id);
+            };
+          }
+      });
     }
-    // addItem: function(sku_id, quantity) {
-    //   this.sku_id = sku_id;
-    //   this.quantity = quantity;
-    // }
-    // buyClick: function(event) {
-    //     let cartId = localStorage.getItem("tgc_cart_id");
-    //     if (!cartId) {
-    //         cartId = "";
-    //     }
-    //     this.cart.call('POST', "/api/cart/" + cartId + "/sku/" +
-    //         this.product.properties.sku_id, {quantity : 1},
-    //         { on_success : function(properties) {
-    //             wing.success('Added!');
-    //             if (!localStorage.getItem("tgc_cart_id")) {
-    //                 localStorage.setItem("tgc_cart_id", properties.id);
-    //             };
-    //         }
-    //     });
-    // }
   },
   mounted() {
     if (localStorage.getItem("tgc_session_id")) {

@@ -3,7 +3,6 @@
 Eliminate defects:
 
 Replicate existing TGC functionality:
-  TODO: Allow the user to add an item to the cart.
   <h2>TODO: Other [Wood Meeples]</h2>
   <h2>TODO: You Might Also Like</h2>
   <h2>TODO: Games Using This</h2>
@@ -122,7 +121,7 @@ export default {
       }
     },
     buyClick: function() {
-      this.$emit("part-buy", {
+      this.$emit("tgc-part-buy", {
         sku_id: this.part.properties.sku_id,
         quantity: 1
       })
