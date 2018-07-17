@@ -14,7 +14,9 @@
       <ais-results>
         <template slot-scope="{ result }">
           <h3>
-            <ais-highlight :result="result" attribute-name="name"></ais-highlight>
+            <router-link :to="'/part/' + result.objectID">
+              <ais-highlight :result="result" attribute-name="name"></ais-highlight>
+            </router-link>
           </h3>
         </template>
       </ais-results>
