@@ -4,9 +4,22 @@
     <p>
       We'll put useful content here soon.
     </p>
-    <b-form @submit="onTest">
-      <b-button type="submit" variant="primary">Test</b-button>
-    </b-form>
+
+    <ais-index
+      app-id="5V0BUFDX8J"
+      api-key="a25692c12853aea7a77c5a7125498512"
+      index-name="parts"
+    >
+      <ais-search-box></ais-search-box>
+      <ais-results>
+        <template slot-scope="{ result }">
+          <h3>
+            <ais-highlight :result="result" attribute-name="name"></ais-highlight>
+          </h3>
+        </template>
+      </ais-results>
+    </ais-index>
+
   </div>
 </template>
 
@@ -21,10 +34,6 @@ export default {
     }
   },
   methods: {
-    onTest (evt) {
-      evt.preventDefault();
-      alert("Test successful!");
-    }
   }
 }
 </script>
@@ -32,17 +41,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+  text-align: left;
 }
 </style>
