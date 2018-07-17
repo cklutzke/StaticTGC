@@ -3,7 +3,7 @@
     <b-container>
       <b-row>
         <b-col>
-          <meeple-selector />
+          <part-selector />
         </b-col>
         <b-col v-show="partId">
           <tgc-part-viewer :part-id="partId"
@@ -20,18 +20,18 @@
 
 <script>
 // @ is an alias to /src
-import MeepleSelector from '@/components/MeepleSelector.vue'
+import PartSelector from '@/components/PartSelector.vue'
 import TGCPartViewer from '@/components/TGCPartViewer.vue'
 import TGCCart from '@/components/TGCCart.vue'
 
 export default {
-  name: 'MeepleShopper',
+  name: 'PartShopper',
   props: [
     'partId',
     'cart'
   ],
   components: {
-    'meeple-selector': MeepleSelector,
+    'part-selector': PartSelector,
     'tgc-part-viewer': TGCPartViewer,
     'tgc-cart': TGCCart
   },

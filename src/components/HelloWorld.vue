@@ -5,23 +5,6 @@
       We'll put useful content here soon.
     </p>
 
-    <ais-index
-      app-id="5V0BUFDX8J"
-      api-key="a25692c12853aea7a77c5a7125498512"
-      index-name="parts"
-    >
-      <ais-search-box></ais-search-box>
-      <ais-results>
-        <template slot-scope="{ result }">
-          <h3>
-            <router-link :to="'/part/' + result.objectID">
-              <ais-highlight :result="result" attribute-name="name"></ais-highlight>
-            </router-link>
-          </h3>
-        </template>
-      </ais-results>
-    </ais-index>
-
   </div>
 </template>
 

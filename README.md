@@ -16,9 +16,10 @@ GETTING STARTED ---------------------
 TODO List --------------------------
 
 Browse parts via Algolia Vue controls.
-  I can add a search item to the cart, why isn't it displayed in the cart?
 
 Allow a customer to complete a purchase.
+
+Watch for errors adding items to cart. (Aiming Shooter)
 
 Create an appropriate landing page.
 
