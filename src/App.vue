@@ -57,6 +57,10 @@ export default {
         params: {
           _include_related_objects: ["items"],
           api_key_id: StaticTGC_api_key_id
+        },
+        on_error: function(properties) {
+          wing.error("An error occurred with the cart object: check the log.");
+          console.dir(properties);
         }
       })
     }

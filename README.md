@@ -15,11 +15,11 @@ GETTING STARTED ---------------------
 
 TODO List --------------------------
 
-Browse parts via Algolia Vue controls.
+Watch for errors adding items to cart. (Aiming Shooter)
 
 Allow a customer to complete a purchase.
 
-Watch for errors adding items to cart. (Aiming Shooter)
+Display a count of cart items in all views.
 
 Create an appropriate landing page.
 

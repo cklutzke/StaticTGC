@@ -5,7 +5,6 @@ Eliminate defects:
 
 Replicate existing TGC functionality:
 TODO: Display the cart contents in a Bootstrap-Vue table.
-TODO: Display the count of cart items in all views.
 
 Add improvements:
 
