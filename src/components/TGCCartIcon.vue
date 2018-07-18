@@ -1,9 +1,14 @@
 
 <template>
   <div>
-    <p style="padding:30px;">
-      <span class="fas fa-shopping-cart"></span> {{ cartCount }}
-    </p>
+    <b-card id="cart-card">
+      <p class="card-text">
+        <span class="fas fa-shopping-cart"></span> {{ cartCount }}
+      </p>
+    </b-card>
+    <b-popover target="cart-card" title="Popover!" placement="bottomleft" triggers="hover focus">
+      <p>This is the popover text.</p>
+    </b-popover>
 </div>
 </template>
 
