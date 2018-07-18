@@ -1,10 +1,21 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/parts">Parts</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <b-container>
+      <b-row>
+        <b-col cols="0" lg="4">
+        </b-col>
+        <b-col>
+          <div id="nav">
+            <router-link to="/">Home</router-link> |
+            <router-link to="/parts">Parts</router-link> |
+            <router-link to="/about">About</router-link>
+          </div>
+        </b-col>
+        <b-col>
+          <tgc-cart-icon :cart="cart" />
+        </b-col>
+      </b-row>
+    </b-container>
     <router-view
       :cart="cart"
       @tgc-part-buy="onPartBuy($event)"
@@ -24,11 +35,13 @@ wing.base_uri = "https://www.thegamecrafter.com";
 const StaticTGC_api_key_id = "034F04B4-7329-11E8-BA7A-8BFD93A6FE1D";
 
 import TGCSession from '@/components/TGCSession.vue'
+import TGCCartIcon from '@/components/TGCCartIcon.vue'
 
 export default {
   name: 'App',
   components: {
-    'tgc-session': TGCSession
+    'tgc-session': TGCSession,
+    'tgc-cart-icon': TGCCartIcon
   },
   data() {
     return {
@@ -141,10 +154,6 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
-}
-
-li {
-  text-align: left;
 }
 
 </style>

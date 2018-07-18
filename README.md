@@ -15,15 +15,13 @@ GETTING STARTED ---------------------
 
 TODO List --------------------------
 
-Watch for errors adding items to cart. (Aiming Shooter)
-
-Allow a customer to complete a purchase.
-
-Display a count of cart items in all views.
+Display a cart icon with count of contents in a card, with full cart contents displayed as a popover.
 
 Create an appropriate landing page.
 
 Resize and rearrange components sensibly for different screen sizes.
+
+Allow a customer to complete a purchase.
 
 Enable various account operations: create account, view receipts, etc.
 
