@@ -2,15 +2,15 @@
   <div>
     <b-container>
       <b-row>
-        <b-col>
+        <b-col sm>
           <part-selector />
         </b-col>
-        <b-col v-show="partId">
+        <b-col sm v-show="partId">
           <tgc-part-viewer :part-id="partId"
             @tgc-part-buy="onPartBuy($event)"
           />
         </b-col>
-        <b-col v-show="cart.properties.id">
+        <b-col sm v-show="cart.properties.id">
           <tgc-cart :cart="cart" />
         </b-col>
       </b-row>
