@@ -15,17 +15,26 @@ GETTING STARTED ---------------------
 
 TODO List --------------------------
 
+Create an appropriate landing page.
+  To start with, mock up something like https://www.thegamecrafter.com/parts
+  Create config file that specifies a logo, site name, departments & categories, CSS styling
+  Derive nav menu from departments and categories
+  Add a placeholder footer area that just says "©2018 The Game Crafter, LLC. All rights reserved."
+
+Product selector needs to display games too!
+  Look at "object_type"
+
+Allow user to remove items from cart.
+
 Display a cart icon with count of contents in a card, with full cart contents displayed as a popover.
 
-Create an appropriate landing page.
+Allow a customer to complete a purchase.
+  Assume we will redirect to The Game Crafter to complete the purchase.
 
 Resize and rearrange components sensibly for different screen sizes.
 
-Allow a customer to complete a purchase.
-
 Enable various account operations: create account, view receipts, etc.
-
-Add page footer links.
+  Can I pull these features from tgc.vue.js?
 
 Eliminate flashes of unstyled / unarranged content.
 
