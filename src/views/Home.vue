@@ -11,25 +11,39 @@
       index-name="products"
     >
       <ais-search-box></ais-search-box>
-      <ais-results inline-template>
-        <b-card-group deck>
-          <div v-for="result in results" >
-            <b-card :title="result.name"
-              :img-src="'https:' + result.preview_uri"
-              style="max-width: 15rem;"
-            >
-              <div slot="footer">
-                <p>${{ result.price }}</p>
-              </div>
-            </b-card>
-          </div>
-        </b-card-group>
-          <!-- <p>
-            <router-link :to="'/part/' + result.objectID">
-              <ais-highlight :result="result" attribute-name="name"></ais-highlight>
-            </router-link>
-          </p> -->
-      </ais-results>
+      <b-container>
+        <b-row>
+          <b-col cols="2">
+            <div v-for="facet in facets">
+              <h3>{{ facet.label }}</h3>
+              <ais-refinement-list :attribute-name="facet.name" />
+            </div>
+          </b-col>
+          <b-col>
+
+            <ais-results inline-template>
+              <b-card-group deck>
+                <div v-for="result in results" >
+                  <b-card :title="result.name"
+                    :img-src="'https:' + result.preview_uri"
+                    style="max-width: 10rem;"
+                  >
+                    <div slot="footer">
+                      <p>${{ result.price }}</p>
+                    </div>
+                  </b-card>
+                </div>
+              </b-card-group>
+                <!-- <p>
+                  <router-link :to="'/part/' + result.objectID">
+                    <ais-highlight :result="result" attribute-name="name"></ais-highlight>
+                  </router-link>
+                </p> -->
+            </ais-results>
+
+          </b-col>
+        </b-row>
+      </b-container>
     </ais-index>
   </div>
 </template>
@@ -46,7 +60,12 @@ export default {
     return {
       testProduct: {
         name: "test product"
-      }
+      },
+      facets: [
+        { name: "department", label: "Departments"},
+        { name: "category", label: "Categories"},
+        { name: "color", label: "Colors"}
+      ]
     }
   }
 }
