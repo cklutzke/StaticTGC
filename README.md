@@ -7,7 +7,7 @@ GETTING STARTED ---------------------
 
 2. Globally install vue-cli 3 (currently in beta) by running "npm install -g @vue/cli". Confirm that you installed version 3 by running "vue -V".
 
-3. Clone this repo to your local machine. Checkout the latest branch: currently this is [session].
+3. Clone this repo to your local machine. Checkout the latest branch: currently this is [homepage].
 
 4. Install all dependencies automatically by running "npm install" in the project root directory.
 
@@ -15,23 +15,30 @@ GETTING STARTED ---------------------
 
 TODO List --------------------------
 
-Create an appropriate landing page.
-  To start with, mock up something like https://www.thegamecrafter.com/parts
-  Create config file that specifies a logo, site name, departments & categories, CSS styling
-  Derive nav menu from departments and categories
-  Add a placeholder footer area that just says "©2018 The Game Crafter, LLC. All rights reserved."
+Plan an appropriate landing page.
+  Show a product viewer like https://www.thegamecrafter.com/parts
+    Show each result as a product card with badge, price, 2 lines of description
+    Needs to display games AND parts (and what else?)
+      Look at "object_type"
+    Handle resizing appropriately.
+    Add item to cart by clicking price in TGCProductCard
+  Design a resizeable header
 
-Product selector needs to display games too!
-  Look at "object_type"
+Plan other views
+  Shopping cart, account settings, help / support, etc.
+
+Create config file that specifies a logo, site name, departments & categories, CSS styling
+  Derive nav menu from departments and categories
+    Look at Algolia search results to see what filters we can specify.
+
+Display full cart contents in a popover from the cart icon.
 
 Allow user to remove items from cart.
-
-Display a cart icon with count of contents in a card, with full cart contents displayed as a popover.
 
 Allow a customer to complete a purchase.
   Assume we will redirect to The Game Crafter to complete the purchase.
 
-Resize and rearrange components sensibly for different screen sizes.
+Provide an option to pin the cart to the right side of the screen.
 
 Enable various account operations: create account, view receipts, etc.
   Can I pull these features from tgc.vue.js?

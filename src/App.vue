@@ -1,30 +1,44 @@
 <template>
   <div id="app">
     <b-container>
-      <b-row>
-        <b-col cols="0" lg="4">
+      <b-row id="header">
+        <!-- TODO
+          SM: Hamburger Nav, Logo, Search Button, Cart
+          MD: Logo, Motto, Search Bar, Cart <br/> Nav, Account
+          LG+: Logo, Motto, Search Bar, Account, Cart <br/> Nav
+        -->
+        <b-col>
+          <img src="@/assets/logo-tgc-small.png">
         </b-col>
         <b-col>
           <div id="nav">
+            <!-- TEMP: Nav should list departments, deals?, help / support, account stuff -->
             <router-link to="/">Home</router-link> |
             <router-link to="/parts">Parts</router-link> |
             <router-link to="/about">About</router-link>
           </div>
         </b-col>
         <b-col>
+          <tgc-session :user-name="userName"
+          @login="onLogin($event)"
+          @logout="onLogout($event)"
+          />
+        </b-col>
+        <b-col>
           <tgc-cart-icon :cart="cart" />
         </b-col>
       </b-row>
+      <b-row id="body">
+        <router-view
+          :cart="cart"
+          @tgc-part-buy="onPartBuy($event)"
+        />
+      </b-row>
+      <b-row id="footer">
+        <!-- TEMP: We'll need more detailed footer matter here eventually. -->
+        <p>©2018 The Game Crafter, LLC. All rights reserved.</p>
+      </b-row>
     </b-container>
-    <router-view
-      :cart="cart"
-      @tgc-part-buy="onPartBuy($event)"
-    />
-    <br />
-    <tgc-session :user-name="userName"
-      @login="onLogin($event)"
-      @logout="onLogout($event)"
-    />
   </div>
 </template>
 
@@ -135,7 +149,7 @@ export default {
 
 <style>
 
-#app {
+/* #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -154,6 +168,6 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
-}
+} */
 
 </style>
