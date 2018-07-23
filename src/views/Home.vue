@@ -2,8 +2,8 @@
   <div class="home">
     <!-- TODO: Put a promotional banner / carousel here. -->
 
-    <!-- TODO: WTF can't I use tgc-product-card in the results display? -->
-    <tgc-product-card :product="testProduct" />
+    <!-- TODO: WTF can't I use tgc-product-card in the results display but I can use it here? -->
+    <!-- <tgc-product-card :product="testProduct" /> -->
 
     <ais-index
       app-id="5V0BUFDX8J"
@@ -24,22 +24,29 @@
             <ais-results inline-template>
               <b-card-group deck>
                 <div v-for="result in results" >
+                  <!-- BUG: If I try to put this b-card definition in a component, it won't load. -->
                   <b-card :title="result.name"
+                    :sub-title="result.category"
                     :img-src="'https:' + result.preview_uri"
                     style="max-width: 10rem;"
                   >
+                    <b-card-body>
+                      <p class="card-text">{{ result.short_description ? result.short_description : result.description }}</p>
+                    </b-card-body>
                     <div slot="footer">
-                      <p>${{ result.price }}</p>
+                      <span>{{ result.badge }}</span>
+                      <span>${{ result.price }}</span>
                     </div>
                   </b-card>
                 </div>
               </b-card-group>
-                <!-- <p>
-                  <router-link :to="'/part/' + result.objectID">
-                    <ais-highlight :result="result" attribute-name="name"></ais-highlight>
-                  </router-link>
-                </p> -->
             </ais-results>
+
+            <!-- <p>
+            <router-link :to="'/part/' + result.objectID">
+            <ais-highlight :result="result" attribute-name="name"></ais-highlight>
+          </router-link>
+        </p> -->
 
           </b-col>
         </b-row>
@@ -58,9 +65,11 @@ export default {
   },
   data: function () {
     return {
-      testProduct: {
-        name: "test product"
-      },
+      // testProduct: {
+      //   name: "test product",
+      //   preview_uri: "//s3.amazonaws.com/preview.thegamecrafter.com/45C414B4-11D2-11E8-AADE-153194A6FE1D.png",
+      //   price: 0.02
+      // },
       facets: [
         { name: "department", label: "Departments"},
         { name: "category", label: "Categories"},

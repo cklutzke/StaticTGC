@@ -17,37 +17,40 @@ TODO List --------------------------
 
 Plan an appropriate landing page.
   Show a product viewer like https://www.thegamecrafter.com/parts
-    Show each result as a product card with badge, price, 2 lines of description
-    Needs to display games AND parts (and what else?)
-      Look at "object_type"
-    Handle resizing appropriately.
-    Add item to cart by clicking price in TGCProductCard
+    FUNCTION
+      Link cards to product detail pages. TEMP: On TGC.
+      Add item directly to cart by clicking price in TGCProductCard
+    APPEARANCE
+      Why aren't the cards the same height and spaced vertically?
+      How do I make the title smaller?
+      Can I highlight the card based on the current badge?
+      Can I show something about sales levels to provide social proof?
+      Can I show if the product is featured or on sale?
+    DEFECTS?
+      Why can't I put the result cards in a TGCProductCard component?
   Design a resizeable header
 
-Plan other views
-  Shopping cart, account settings, help / support, etc.
-
 Create config file that specifies a logo, site name, departments & categories, CSS styling
+  Config what items to show in search results: e.g. Category vs Department
   Derive nav menu from departments and categories
     Look at Algolia search results to see what filters we can specify.
 
-Display full cart contents in a popover from the cart icon.
+Complete shopping process.
+  Allow a customer to complete a purchase.
+    Assume we will redirect to The Game Crafter to complete the purchase.
+  Display full cart contents in a popover from the cart icon.
+  Allow user to remove items from cart.
+  Provide an option to pin the cart to the right side of the screen.
 
-Allow user to remove items from cart.
-
-Allow a customer to complete a purchase.
-  Assume we will redirect to The Game Crafter to complete the purchase.
-
-Provide an option to pin the cart to the right side of the screen.
+Create router-based product pages.
 
 Enable various account operations: create account, view receipts, etc.
   Can I pull these features from tgc.vue.js?
 
+Add help / support features.
+
+Add gift certificate features.
+
 Eliminate flashes of unstyled / unarranged content.
 
 Update the page title and meta tags based from router changes. https://alligator.io/vuejs/vue-router-modify-head/
-
-CONCERNS ---------------------------
-
-Watch for issues related to this warning from installing bootstrap-vue:
-  npm WARN bootstrap@4.1.1 requires a peer of jquery@1.9.1 - 3 but none is installed. You must install peer dependencies yourself.
