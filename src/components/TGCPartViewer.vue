@@ -121,7 +121,7 @@ export default {
       }
     },
     buyClick: function() {
-      this.$emit("tgc-part-buy", {
+      this.$emit("tgc-product-buy", {
         sku_id: this.part.properties.sku_id,
         quantity: 1
       })

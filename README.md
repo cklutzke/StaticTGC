@@ -17,20 +17,21 @@ TODO List --------------------------
 
 Plan an appropriate landing page.
   Show a product viewer like https://www.thegamecrafter.com/parts
-    FUNCTION
-      Link cards to product detail pages. TEMP: On TGC.
-      Add item directly to cart by clicking price in TGCProductCard
-    APPEARANCE
-      Why aren't the cards the same height and spaced vertically?
-      How do I make the title smaller?
-      Can I highlight the card based on the current badge?
+    QUESTIONS
+      It seems like Algolia is fucking up the Bootstrap Vue b-cards.
+        Cards are supposed to be the same height, but they're not.
+        When I try to make the cards into components inside Algolia results, it says they're not registered correctly.
+        I can't invoke a computed value to massage / truncate product description text.
+          Or handle the hyperlink in the sticker pawn description text.
+        I can't invoke a method for the price button.
+      How do I make it so clicking anywhere on the card takes you to the product?
+        If I wrap it in a b-link, it turns all the text blue.
+      Why does the Department refinement list show kebab tags instead of human-readable text?
+    IDEAS
       Can I show something about sales levels to provide social proof?
-      Can I show if the product is featured or on sale?
-    DEFECTS?
-      Why can't I put the result cards in a TGCProductCard component?
   Design a resizeable header
 
-Create config file that specifies a logo, site name, departments & categories, CSS styling
+Create config file that specifies a logo, site name, search facets, CSS styling
   Config what items to show in search results: e.g. Category vs Department
   Derive nav menu from departments and categories
     Look at Algolia search results to see what filters we can specify.

@@ -31,7 +31,7 @@
       <b-row id="body">
         <router-view
           :cart="cart"
-          @tgc-part-buy="onPartBuy($event)"
+          @tgc-product-buy="onProductBuy($event)"
         />
       </b-row>
       <b-row id="footer">
@@ -114,7 +114,7 @@ export default {
     onLogout: function(event) {
       this.session.delete();
     },
-    onPartBuy: function(event) {
+    onProductBuy: function(event) {
       // If we already have a cart ID, use it.
       let cartId = localStorage.getItem("tgc_cart_id");
       if (!cartId) {

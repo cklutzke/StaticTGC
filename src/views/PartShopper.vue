@@ -7,7 +7,7 @@
         </b-col>
         <b-col v-show="partId">
           <tgc-part-viewer :part-id="partId"
-            @tgc-part-buy="onPartBuy($event)"
+            @tgc-product-buy="onProductBuy($event)"
           />
         </b-col>
         <b-col v-show="cart.properties.id">
@@ -40,8 +40,8 @@ export default {
     }
   },
   methods: {
-    onPartBuy: function (event) {
-      this.$emit("tgc-part-buy", event);
+    onProductBuy: function (event) {
+      this.$emit("tgc-product-buy", event);
     }
   }
 }
