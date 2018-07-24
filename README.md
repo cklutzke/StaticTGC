@@ -16,22 +16,22 @@ GETTING STARTED ---------------------
 TODO List --------------------------
 
 Plan an appropriate landing page.
-  Make pagination buttons look decent
-  Fix formatting for single result
+  Why aren't prices styling correctly?
+    Import <script src="https://cdn.jsdelivr.net/npm/vue2-filters@0.3.0/dist/vue2-filters.min.js">
+  Make pagination buttons look decent - check Bootstrap for pagination controls
+  Fix formatting for single result - try removing the b-container stuff
+    test with "whitetail solitaire hex"
   Hide facets if no results
   Make the page look decent on a phone
   Make the page look decent on a tablet or laptop
-
-  QUESTIONS
-    Should I have router pages for departments and categories?
-    Why aren't prices styling correctly?
-    Why does the Department refinement list show kebab tags instead of human-readable text?
-    Can we show something about sales levels to provide social proof?
+  Create a category page view page
+    It would be great if we could filter by department for items with no category or category == "Indie Games"
 
 Create config file that specifies a logo, site name, search facets, CSS styling
   Try setting up a config to limit all searches sitewide
   Config what items to show in search results: e.g. Category vs Department
-  Derive nav menu from departments and categories
+  Derive nav menu from categories
+    Can I differentiate games (and _only_ games) by Department?
 
 Update product viewer to work with both parts and games.
 

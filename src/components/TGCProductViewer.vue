@@ -22,7 +22,7 @@ Add improvements:
     <b-container>
         <b-img :src="'http:' + product.properties.preview_uri" :alt="'Photo of ' + product.properties.name" fluid />
     </b-container>
-    <p>{{ product.properties.description }}</p>
+    <p v-html="product.properties.description"></p>
     <!-- TEMP: This generates a lot of noise that I don't want to look at right now. Uncomment it later.
     <b-embed type="iframe" aspect="16by9" allowfullscreen
            :src="'https://www.youtube.com/embed/' + product.properties.youtube_video_id"
