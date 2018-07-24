@@ -77,7 +77,6 @@ export default {
   data: function () {
     return {
       facets: [
-        { name: "department", label: "Departments"},
         { name: "category", label: "Categories"},
         { name: "color", label: "Colors"}
       ]

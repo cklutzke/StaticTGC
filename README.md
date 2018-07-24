@@ -16,8 +16,6 @@ GETTING STARTED ---------------------
 TODO List --------------------------
 
 Plan an appropriate landing page.
-  Why aren't prices styling correctly?
-    Import <script src="https://cdn.jsdelivr.net/npm/vue2-filters@0.3.0/dist/vue2-filters.min.js">
   Make pagination buttons look decent - check Bootstrap for pagination controls
   Fix formatting for single result - try removing the b-container stuff
     test with "whitetail solitaire hex"
@@ -25,7 +23,7 @@ Plan an appropriate landing page.
   Make the page look decent on a phone
   Make the page look decent on a tablet or laptop
   Create a category page view page
-    It would be great if we could filter by department for items with no category or category == "Indie Games"
+    It would be great if we could filter by department for items with no category, or category == "Indie Games"
 
 Create config file that specifies a logo, site name, search facets, CSS styling
   Try setting up a config to limit all searches sitewide
