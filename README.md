@@ -16,18 +16,24 @@ GETTING STARTED ---------------------
 TODO List --------------------------
 
 Plan an appropriate landing page.
-  Copy what JT is doing in the VUE branch of /plainblack/TGC
-    Get links working: first to TGC pages, then to router views.
-  Design a resizeable header
+  Make pagination buttons look decent
+  Fix formatting for single result
+  Hide facets if no results
+  Make the page look decent on a phone
+  Make the page look decent on a tablet or laptop
 
   QUESTIONS
-    How can I find an example of a featured product, so I can test that ribbon?
+    Should I have router pages for departments and categories?
+    Why aren't prices styling correctly?
     Why does the Department refinement list show kebab tags instead of human-readable text?
     Can we show something about sales levels to provide social proof?
 
 Create config file that specifies a logo, site name, search facets, CSS styling
+  Try setting up a config to limit all searches sitewide
   Config what items to show in search results: e.g. Category vs Department
   Derive nav menu from departments and categories
+
+Update product viewer to work with both parts and games.
 
 Complete shopping process.
   Allow user to add to cart from price button on product card.
@@ -50,8 +56,17 @@ Eliminate flashes of unstyled / unarranged content.
 
 Update the page title and meta tags based from router changes. https://alligator.io/vuejs/vue-router-modify-head/
 
-PRODUCT SEARCH RESULT ATTRIBUTES ----------------------------
-_highlightResult
+ALGOLIA PRODUCT SEARCH RESULT ATTRIBUTES ----------------------------
+
+attributesToIndex       => ['name', 'department_name', 'category', 'keywords', 'description', 'short_description', 'designer_name', 'if_you_like', 'cool_factor_1','cool_factor_2','cool_factor_3','genre','theme','setting','audience','primary_mechanic', 'color', 'material', 'department_uri_part'],
+
+attributesForFaceting   => ['asset_types','asset_set','license_type','digital_delivery','contains_nudity','contains_substance_abuse','contains_gore','contains_profanity','contains_sexuality','designer_id','related','components_used','id','vintage','discontinued','low_volume','staff_pick','featured','on_sale','price','department', 'min_age', 'min_players', 'max_players','play_time','genre','theme','setting','audience','primary_mechanic','if_you_like', 'color', 'material', 'category','family','object_type','size_in_mm','number_of_sides','usable_in_games'],
+
+numericAttributesToIndex=> ['last_sale_date','date_published','accolade_count', 'bayesian_ranking', 'min_players', 'max_players', 'featured', 'showcase', 'sales', 'price', 'vintage', 'discontinued', 'on_sale', 'low_volume','size_in_mm','number_of_sides',],
+
+customRanking           => ['desc(rank)', 'asc(name)', 'desc(sales)', ],
+
+_highlightResult [object]
 badge
 category
 color

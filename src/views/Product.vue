@@ -2,11 +2,8 @@
   <div>
     <b-container>
       <b-row>
-        <b-col>
-          <part-selector />
-        </b-col>
-        <b-col v-show="partId">
-          <tgc-part-viewer :part-id="partId"
+        <b-col v-show="productId">
+          <tgc-product-viewer :product-id="productId"
             @tgc-product-buy="onProductBuy($event)"
           />
         </b-col>
@@ -20,19 +17,17 @@
 
 <script>
 // @ is an alias to /src
-import PartSelector from '@/components/PartSelector.vue'
-import TGCPartViewer from '@/components/TGCPartViewer.vue'
+import TGCProductViewer from '@/components/TGCProductViewer.vue'
 import TGCCart from '@/components/TGCCart.vue'
 
 export default {
-  name: 'PartShopper',
+  name: 'Product',
   props: [
-    'partId',
+    'productId',
     'cart'
   ],
   components: {
-    'part-selector': PartSelector,
-    'tgc-part-viewer': TGCPartViewer,
+    'tgc-product-viewer': TGCProductViewer,
     'tgc-cart': TGCCart
   },
   data: function () {

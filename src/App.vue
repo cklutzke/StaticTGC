@@ -14,7 +14,6 @@
           <div id="nav">
             <!-- TEMP: Nav should list departments, deals?, help / support, account stuff -->
             <router-link to="/">Home</router-link> |
-            <router-link to="/parts">Parts</router-link> |
             <router-link to="/about">About</router-link>
           </div>
         </b-col>

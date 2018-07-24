@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
-import PartShopper from './views/PartShopper.vue'
+import Product from './views/Product.vue'
 
 Vue.use(Router)
 
@@ -19,15 +19,9 @@ export default new Router({
       component: About
     },
     {
-      path: '/parts',
-      name: 'parts',
-      component: PartShopper,
-      props: true
-    },
-    {
-      path: '/part/:partId',
-      name: 'part',
-      component: PartShopper,
+      path: '/product/:productId',
+      name: 'product',
+      component: Product,
       props: true
     }
   ]

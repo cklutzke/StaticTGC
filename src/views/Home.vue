@@ -8,6 +8,7 @@
       index-name="products"
     >
       <ais-search-box></ais-search-box>
+      <ais-no-results></ais-no-results>
 
       <b-container>
         <b-row>
@@ -18,22 +19,12 @@
             </div>
           </b-col>
           <b-col>
-
-            <!-- TODO: Link to router page for each product. -->
-            <!-- <p>
-              <router-link :to="'/part/' + result.objectID">
-                <ais-highlight :result="result" attribute-name="name"></ais-highlight>
-              </router-link>
-            </p> -->
-
             <ais-results inline-template>
-
               <div class="row">
                 <div class="col-6 col-xl-3 col-lg-4" v-for="result in results">
                   <div class="product is-gray">
-                    <a href="#"
+                    <router-link :to="'/product/' + result.sku_id"
                       class="image d-flex align-items-center justify-content-center">
-                      <!-- {{shop_uri}}[% IF dept_uri %]?dept_uri=[% dept_uri %]&dept_name=[% dept_name %][% END %] -->
                         <div v-if="result.on_sale" class="ribbon ribbon-danger text-uppercase">
                           {{result.badge ? result.badge : 'On Sale!'}}
                         </div>
@@ -41,15 +32,16 @@
                         <div v-if="result.staff_pick" class="ribbon ribbon-success text-uppercase">Staff Pick</div>
                         <div v-if="result.vintage" class="ribbon ribbon-info text-uppercase">Vintage</div>
                         <img :src="result.preview_uri" alt="product" class="img-fluid">
-                    </a>
+                    </router-link>
                     <div class="title">
                       <small class="text-muted">
                         <!-- <a href="[% IF dept_uri %][% dept_uri %][% ELSE %]{{department_uri_part}}[% END %]"> -->
                         {{ result.dept_name ? result.dept_name : result.department_name }}
                         <!-- </a> -->
                       </small>
-                      <!-- <a href="{{shop_uri}}[% IF dept_uri %]?dept_uri=[% dept_uri %]&dept_name=[% dept_name %][% END %]"><h3 class="h6 text-uppercase no-margin-bottom">{{name}}</h3></a> -->
-                      <h3 class="h6 text-uppercase no-margin-bottom">{{result.name}}</h3>
+                      <router-link :to="'/product/' + result.sku_id">
+                        <h3 class="h6 text-uppercase no-margin-bottom">{{result.name}}</h3>
+                      </router-link>
                       <button v-if="!result.on_sale"
                         class="btn btn-secondary btn-sm float-right">
                         <!-- onclick="tgc.add_to_cart('{{sku_id}}', this, {{over18}})" -->
@@ -65,26 +57,26 @@
                   </div>
                 </div>
               </div>
-
             </ais-results>
           </b-col>
         </b-row>
       </b-container>
+      <ais-results-per-page-selector :options="[20, 50, 100]"></ais-results-per-page-selector>
+      <ais-pagination></ais-pagination>
     </ais-index>
   </div>
 </template>
 
 <script>
-import TGCProductCard from "@/components/TGCProductCard.vue"
 
 export default {
   name: "home",
   components: {
-    "tgc-product-card": TGCProductCard
   },
   data: function () {
     return {
       facets: [
+        { name: "size_in_mm", label: "Test Facet"},
         { name: "department", label: "Departments"},
         { name: "category", label: "Categories"},
         { name: "color", label: "Colors"}
