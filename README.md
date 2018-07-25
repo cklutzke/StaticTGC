@@ -16,11 +16,11 @@ GETTING STARTED ---------------------
 TODO List --------------------------
 
 Plan an appropriate landing page.
-  Try copying structure and style from Algolia's bootstrap example
+  Try copying style from Algolia's bootstrap example
     https://codesandbox.io/s/github/algolia/vue-instantsearch-examples/tree/master/examples/e-commerce?from-embed
-  Fix formatting for single result - try removing the b-container stuff
-    test with "whitetail solitaire hex"
-  Hide facets if no results
+    Fix pagination control - why doesn't it look like Bootstrap example?
+  Fix formatting for single result - test with "dindaelus"
+  Can we translate div-based rows and columns to bootstrap-vue layout tags? (b-container, b-row, b-col)
   Make the page look decent on a phone
   Make the page look decent on a tablet or laptop
   Create a category page view page
