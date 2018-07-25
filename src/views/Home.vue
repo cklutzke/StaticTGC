@@ -9,8 +9,6 @@
     >
       <ais-search-box></ais-search-box>
       <ais-results-per-page-selector :options="[20, 50, 100]"></ais-results-per-page-selector>
-      <ais-pagination></ais-pagination>
-      <ais-no-results></ais-no-results>
 
       <b-container>
         <b-row>
@@ -64,6 +62,14 @@
           </b-col>
         </b-row>
       </b-container>
+
+      <ais-no-results/>
+      <ais-pagination class="pagination" :classNames="{
+        'ais-pagination': 'pagination',
+        'ais-pagination__item--active': 'active',
+        'ais-pagination__item--disabled': 'disabled'
+        }" v-on:page-change="onPageChange" />
+
     </ais-index>
   </div>
 </template>
@@ -83,6 +89,9 @@ export default {
     }
   },
   methods: {
+    onPageChange() {
+      window.scrollTo(0, 0);
+    }
   }
 
 }

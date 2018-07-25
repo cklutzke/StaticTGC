@@ -16,7 +16,8 @@ GETTING STARTED ---------------------
 TODO List --------------------------
 
 Plan an appropriate landing page.
-  Make pagination buttons look decent - check Bootstrap for pagination controls
+  Try copying structure and style from Algolia's bootstrap example
+    https://codesandbox.io/s/github/algolia/vue-instantsearch-examples/tree/master/examples/e-commerce?from-embed
   Fix formatting for single result - try removing the b-container stuff
     test with "whitetail solitaire hex"
   Hide facets if no results
