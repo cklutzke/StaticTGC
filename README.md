@@ -16,6 +16,9 @@ GETTING STARTED ---------------------
 TODO List --------------------------
 
 Plan an appropriate landing page.
+  Look through the <style> section from the Algolia Bootstrap example
+    Make use of what I can
+    Remove that which is no longer relevant
   Fix formatting for single result - test with "dindaelus"
   Can we translate div-based rows and columns to bootstrap-vue layout tags? (b-container, b-row, b-col)
   Make the page look decent on a phone
