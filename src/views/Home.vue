@@ -99,11 +99,15 @@
             </ais-results>
 
             <ais-no-results/>
+
             <ais-pagination class="pagination" :classNames="{
-              'ais-pagination': 'pagination',
+              'ais-pagination': 'root',
+              'ais-pagination__item': 'page-item',
+              'ais-pagination__link': 'page-link',
               'ais-pagination__item--active': 'active',
               'ais-pagination__item--disabled': 'disabled'
-              }" v-on:page-change="onPageChange" />
+            }"v-on:page-change="onPageChange" />
+
           </div>
         </div>
       </ais-index>
