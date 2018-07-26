@@ -1,4 +1,8 @@
 
+/*
+These lines must be added to the header to work with Vue-CLI 3 / Webpack.
+-CWK
+*/
 import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
 import Vue2Filters from 'vue2-filters';
@@ -10,7 +14,6 @@ import Qs from 'qs';
 Vue.use(BootstrapVue);
 
 export {wing};
-
 
 /*
  * Axios global settings
@@ -70,7 +73,7 @@ axios.interceptors.response.use(function (response) {
 
 var throbber = document.createElement('div');
 throbber.innerHTML = `<div id="wingajaxprogress" style="z-index: 10000; position: fixed; top: 0px; width: 100%;">
-    <template v-if="counter > 0"><b-progress :value="counter" :max="max" height="5px" animated></b-progress></template>
+    <template v-if="counter > 0"><b-progress :value="counter" :max="max" height="10px" animated></b-progress></template>
 </div>`;
 document.body.appendChild(throbber);
 
@@ -319,7 +322,14 @@ const wing = {
     format_post_data(params) {
         var form = new FormData();
         _.forEach(params, function(value, key) {
-            form.append(key, value);
+            if (typeof(value) == 'object') {
+                _.forEach(value, function(element) {
+                    form.append(key, element);
+                });
+            }
+            else {
+                form.append(key, value);
+            }
         });
         return form;
     },
@@ -368,7 +378,7 @@ const wing = {
                 }
             })
             .catch( function (error) {
-                console.error(error);
+                console.dir(error);
                 const data = error.response.data;
                 if (typeof options !== 'undefined' && typeof options.on_error !== 'undefined') {
                     options.on_error(data.result);
@@ -457,7 +467,8 @@ const wing = {
                 }
             })
             .catch( function (error) {
-                console.error(error);
+                console.error('Problem with CALL: '+uri);
+                console.dir(error);
                 const data = error.response.data;
                 if (typeof options !== 'undefined' && typeof options.on_error !== 'undefined') {
                     options.on_error(data.result);
@@ -787,7 +798,7 @@ const wing = {
             }
             const new_object = self._create_object(properties);
             const add_it = function() {
-                if (typeof options !== 'undefined' && typeof options.unshift !== 'undefined' && options.unshift == true) {
+                if ((typeof options !== 'undefined' && typeof options.unshift !== 'undefined' && options.unshift == true) || (typeof behavior.unshift_on_create !== 'undefined' && behavior.unshift_on_create)) {
                     self.objects.unshift(new_object);
                 }
                 else {
@@ -916,7 +927,7 @@ const wing = {
     },
 
     /*
-     * parses a date into a momemnt object
+     * parses a date into a moment object
      */
 
      parse_date : (input, timezone) => {
