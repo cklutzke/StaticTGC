@@ -15,11 +15,10 @@
             <ais-search-box>
               <div class="input-group">
                 <ais-input
-                  placeholder="Search product by name or reference..."
+                  placeholder="Search product by name or description..."
                   :classNames="{
                     'ais-input': 'form-control'
                   }"/>
-
                 <span class="btn-group" role="group">
                   <ais-clear :classNames="{'ais-clear': 'btn btn-secondary'}">
                     <i class="fas fa-times" aria-hidden="true"/>
@@ -34,44 +33,27 @@
         </div>
         <div class="row">
           <div class="col-md-2 col-sm-3">
-            <!-- <div v-for="facet in facets">
-              <h4>{{ facet.label }}</h4>
-              <ais-refinement-list :attribute-name="facet.name" />
-            </div> -->
-
-            <ais-price-range attribute-name="price" :classNames="{
+            <ais-price-range class="pb-2" attribute-name="price" :classNames="{
               'ais-price-range__input': 'form-control'
               }">
               <h3 slot="header">Price</h3>
             </ais-price-range>
-
-            <ais-refinement-list attribute-name="material" :classNames="{
-              'ais-refinement-list__count': 'badge',
-              'ais-refinement-list__item': 'checkbox'
-              }">
-              <h3 slot="header">Material</h3>
-            </ais-refinement-list>
-
-            <ais-refinement-list attribute-name="color" :classNames="{
-              'ais-refinement-list__count': 'badge',
-              'ais-refinement-list__item': 'checkbox'
-              }">
-              <h3 slot="header">Color</h3>
-            </ais-refinement-list>
+            <template v-for="facet in facets">
+              <ais-refinement-list class="pb-2" :attribute-name="facet.name" :classNames="{
+                'ais-refinement-list__count': 'badge badge-secondary',
+                'ais-refinement-list__item': 'checkbox'
+                }">
+                <h3 slot="header">{{facet.label}}</h3>
+              </ais-refinement-list>
+            </template>
           </div>
+
           <div class="col-md-10 col-sm-9">
-            <form class="search-controls form-inline">
-              <ais-stats class="mr-sm-5"/>
+            <form class="search-controls form-inline justify-content-between">
+              <ais-stats />
               <ais-results-per-page-selector id="ais-rpps" :options="[8, 48]"
-                class="form-control mr-sm-1"/>
-              <label for="ais-rpps">results per page</label>
-              <!-- <ais-sort-by-selector :indices="[
-                  {name: 'ikea', label: 'Relevance'},
-                  {name: 'ikea_price_asc', label: 'Lowest price'},
-                  {name: 'ikea_price_desc', label: 'Highest price'}
-                  ]"
-                  :classNames="{'ais-sort-by-selector': 'form-control' }"
-              /> -->
+                class="form-control"/>
+              <!-- <label for="ais-rpps" style="padding-left: 10px;">results per page</label> -->
             </form>
 
             <ais-results inline-template>
@@ -141,8 +123,10 @@ export default {
   data: function () {
     return {
       facets: [
-        { name: "category", label: "Categories"},
-        { name: "color", label: "Colors"}
+        { name: "category", label: "Category"},
+        { name: "material", label: "Material"},
+        { name: "color", label: "Color"},
+        { name: "max_players", label: "Max Players"}
       ]
     }
   },
@@ -158,36 +142,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss" rel="stylesheet/scss">
 
-// TEMP: A lot of this was copied from an Algolia Bootstrap example: remove what isn't relevant.
-
 .search-controls {
   padding-bottom: 20px;
-}
-
-.ais-stats {
-  line-height: 36px;
-}
-
-.ais-results:after {
-  content: ' ';
-  display: block;
-  clear: both;
-}
-
-/* Sort by selector */
-.search-controls {
-  .form-control {
-    float: right;
-    margin-left: 10px;
-  }
-}
-.ais-sort-by-selector {
-  float: right;
-}
-
-.ais-results-per-page-selector {
-  float: right;
-  margin-right: 10px;
 }
 
 /* Clear Search */
@@ -195,10 +151,6 @@ export default {
   display: none;
 }
 
-/* Price Range */
-.ais-price-range__input--from,
-.ais-price-range__input--to {
-  width: 65px;
-  display: inline-block;
-}
+
+
 </style>

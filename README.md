@@ -16,17 +16,16 @@ GETTING STARTED ---------------------
 TODO List --------------------------
 
 Plan an appropriate landing page.
-  Look through the <style> section from the Algolia Bootstrap example
-    Make use of what I can
-    Remove that which is no longer relevant
   Fix formatting for single result - test with "dindaelus"
+  Fix formatting for no-results
+  Add label for results-per-page control
   Can we translate div-based rows and columns to bootstrap-vue layout tags? (b-container, b-row, b-col)
-  Make the page look decent on a phone
-  Make the page look decent on a tablet or laptop
+  Clean up the header
+    Link the logo to the home page
   Create a category page view page
     It would be great if we could filter by department for items with no category, or category == "Indie Games"
 
-Create config file that specifies a logo, site name, search facets, CSS styling
+Create config file that specifies a logo, site name, search refinement facets, CSS styling
   Try setting up a config to limit all searches sitewide
   Config what items to show in search results: e.g. Category vs Department
   Derive nav menu from categories
