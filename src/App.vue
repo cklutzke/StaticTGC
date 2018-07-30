@@ -8,7 +8,9 @@
           LG+: Logo, Motto, Search Bar, Account, Cart <br/> Nav
         -->
         <b-col>
-          <img src="@/assets/logo-tgc-small.png">
+          <router-link to="/">
+            <img src="@/assets/logo-small.png">
+          </router-link>
         </b-col>
         <b-col>
           <div id="nav">
