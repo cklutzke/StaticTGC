@@ -16,14 +16,13 @@ GETTING STARTED ---------------------
 TODO List --------------------------
 
 Plan an appropriate landing page.
-  Fix formatting for single result - test with "dindaelus"
-  Fix formatting for no-results
-  Put space between refinement checkbox and label
-  Add label for results-per-page control
   Clean up the header
     Link the logo to the home page
   Create a category page view page
     It would be great if we could filter by department for items with no category, or category == "Indie Games"
+  DEFECTS
+    Does stupid restructuring crap if search displays 1 or 0 results. Test with "dindaelus".
+    Results-per-page control should have a label.
 
 Create config file that specifies a logo, site name, search refinement facets, CSS styling
   Try setting up a config to limit all searches sitewide

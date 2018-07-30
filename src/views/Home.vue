@@ -17,8 +17,10 @@
             </ais-price-range>
             <template v-for="facet in facets">
               <ais-refinement-list class="pb-2" :attribute-name="facet.name" :classNames="{
-                'ais-refinement-list__count': 'badge badge-secondary',
-                'ais-refinement-list__item': 'checkbox'
+                'ais-refinement-list': 'form-check',
+                'ais-refinement-list__checkbox': 'form-check-input',
+                'ais-refinement-list__label': 'form-check-label',
+                'ais-refinement-list__count': 'badge badge-secondary'
                 }">
                 <h3 slot="header">{{facet.label}}</h3>
               </ais-refinement-list>
@@ -141,7 +143,5 @@ export default {
 .ais-clear--disabled {
   display: none;
 }
-
-
 
 </style>
