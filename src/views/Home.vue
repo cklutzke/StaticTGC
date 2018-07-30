@@ -2,18 +2,31 @@
   <div class="home">
     <!-- TODO: Put a promotional banner / carousel here. -->
 
-    <div class="container-fluid">
+    <b-container fluid>
       <ais-index
         app-id="5V0BUFDX8J"
         api-key="a25692c12853aea7a77c5a7125498512"
         index-name="products">
-        <div class="row">
-          <div class="col-md-2 col-sm-3">
+        <b-row>
+          <b-col sm="3" lg="auto">
             <h1>Search</h1>
-          </div>
-          <div class="col-md-10 col-sm-9">
+            <ais-price-range class="pb-2" attribute-name="price" :classNames="{
+              'ais-price-range__input': 'form-control'
+              }">
+              <h3 slot="header">Price</h3>
+            </ais-price-range>
+            <template v-for="facet in facets">
+              <ais-refinement-list class="pb-2" :attribute-name="facet.name" :classNames="{
+                'ais-refinement-list__count': 'badge badge-secondary',
+                'ais-refinement-list__item': 'checkbox'
+                }">
+                <h3 slot="header">{{facet.label}}</h3>
+              </ais-refinement-list>
+            </template>
+          </b-col>
+          <b-col sm="9">
             <ais-search-box>
-              <div class="input-group">
+              <div class="search-controls input-group">
                 <ais-input
                   placeholder="Search product by name or description..."
                   :classNames="{
@@ -29,26 +42,6 @@
                 </span>
               </div><!-- /input-group -->
             </ais-search-box>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2 col-sm-3">
-            <ais-price-range class="pb-2" attribute-name="price" :classNames="{
-              'ais-price-range__input': 'form-control'
-              }">
-              <h3 slot="header">Price</h3>
-            </ais-price-range>
-            <template v-for="facet in facets">
-              <ais-refinement-list class="pb-2" :attribute-name="facet.name" :classNames="{
-                'ais-refinement-list__count': 'badge badge-secondary',
-                'ais-refinement-list__item': 'checkbox'
-                }">
-                <h3 slot="header">{{facet.label}}</h3>
-              </ais-refinement-list>
-            </template>
-          </div>
-
-          <div class="col-md-10 col-sm-9">
             <form class="search-controls form-inline justify-content-between">
               <ais-stats />
               <ais-results-per-page-selector id="ais-rpps" :options="[8, 48]"
@@ -57,8 +50,8 @@
             </form>
 
             <ais-results inline-template>
-              <div class="row">
-                <div class="col-6 col-xl-3 col-lg-4" v-for="result in results">
+              <b-row>
+                <b-col cols="6" xl="3" lg="4" v-for="result in results">
                   <div class="product is-gray">
                     <router-link :to="'/product/' + result.sku_id"
                       class="image d-flex align-items-center justify-content-center">
@@ -93,12 +86,11 @@
                       <span class="price text-muted">{{result.price|currency}}</span>
                     </div>
                   </div>
-                </div>
-              </div>
+                </b-col>
+              </b-row>
             </ais-results>
 
             <ais-no-results/>
-
             <ais-pagination :classNames="{
               'ais-pagination': 'pagination',
               'ais-pagination__item': 'page-item',
@@ -106,11 +98,10 @@
               'ais-pagination__item--active': 'active',
               'ais-pagination__item--disabled': 'disabled'
             }" v-on:page-change="onPageChange" />
-
-          </div>
-        </div>
+          </b-col>
+        </b-row>
       </ais-index>
-    </div>
+    </b-container>
   </div>
 </template>
 

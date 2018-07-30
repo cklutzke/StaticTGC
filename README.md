@@ -18,8 +18,8 @@ TODO List --------------------------
 Plan an appropriate landing page.
   Fix formatting for single result - test with "dindaelus"
   Fix formatting for no-results
+  Put space between refinement checkbox and label
   Add label for results-per-page control
-  Can we translate div-based rows and columns to bootstrap-vue layout tags? (b-container, b-row, b-col)
   Clean up the header
     Link the logo to the home page
   Create a category page view page
