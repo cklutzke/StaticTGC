@@ -46,14 +46,14 @@
             </ais-search-box>
             <form class="search-controls form-inline justify-content-between">
               <ais-stats />
-              <ais-results-per-page-selector id="ais-rpps" :options="[8, 48]"
+              <ais-results-per-page-selector id="ais-rpps" :options="[8, 50]"
                 class="form-control"/>
               <!-- <label for="ais-rpps" style="padding-left: 10px;">results per page</label> -->
             </form>
 
             <ais-results inline-template>
               <b-row>
-                <b-col cols="6" xl="3" lg="4" v-for="result in results">
+                <b-col cols="6" lg="4" xl="3" v-for="result in results">
                   <div class="product is-gray">
                     <router-link :to="'/product/' + result.sku_id"
                       class="image d-flex align-items-center justify-content-center">

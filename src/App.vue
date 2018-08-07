@@ -1,41 +1,36 @@
 <template>
   <div id="app">
+    <!-- TODO
+      SM: Hamburger Nav, Logo, Cart
+      MD: Logo, Motto, Account <br/> Nav, Cart
+      LG+: Logo, Motto, Nav, Cart, Account
+    -->
+    <b-navbar toggleable="sm" type="dark" variant="primary" sticky>
+      <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+      <b-navbar-brand to="/">
+        <img src="@/assets/logo-small.png">
+      </b-navbar-brand>
+      <b-collapse is-nav id="nav_collapse">
+        <b-navbar-nav>
+          <b-nav-text>[This site's motto here.]</b-nav-text>
+          <b-nav-item href="#">[Configured Nav Item]</b-nav-item>
+          <b-nav-item to="/about">About</b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+      <tgc-session :user-name="userName"
+      @login="onLogin($event)"
+      @logout="onLogout($event)"
+      />
+      <tgc-cart-icon :cart="cart" />
+    </b-navbar>
     <b-container>
-      <b-row id="header">
-        <!-- TODO
-          SM: Hamburger Nav, Logo, Search Button, Cart
-          MD: Logo, Motto, Search Bar, Cart <br/> Nav, Account
-          LG+: Logo, Motto, Search Bar, Account, Cart <br/> Nav
-        -->
-        <b-col>
-          <router-link to="/">
-            <img src="@/assets/logo-small.png">
-          </router-link>
-        </b-col>
-        <b-col>
-          <div id="nav">
-            <!-- TEMP: Nav should list departments, deals?, help / support, account stuff -->
-            <router-link to="/">Home</router-link> |
-            <router-link to="/about">About</router-link>
-          </div>
-        </b-col>
-        <b-col>
-          <tgc-session :user-name="userName"
-          @login="onLogin($event)"
-          @logout="onLogout($event)"
-          />
-        </b-col>
-        <b-col>
-          <tgc-cart-icon :cart="cart" />
-        </b-col>
-      </b-row>
       <b-row id="body">
         <router-view
           :cart="cart"
           @tgc-product-buy="onProductBuy($event)"
         />
       </b-row>
-      <b-row id="footer">
+      <b-row class="mt-3" id="footer">
         <!-- TEMP: We'll need more detailed footer matter here eventually. -->
         <p>©2018 The Game Crafter, LLC. All rights reserved.</p>
       </b-row>
