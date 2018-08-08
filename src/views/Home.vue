@@ -6,12 +6,16 @@
       <ais-index
         app-id="5V0BUFDX8J"
         api-key="a25692c12853aea7a77c5a7125498512"
-        index-name="products">
+        index-name="products"
+        :query-parameters="algoliaParameters">
         <b-row>
           <b-col sm="3" lg="auto">
             <h1>Search</h1>
-            <ais-price-range class="pb-2" attribute-name="price" :classNames="{
-              'ais-price-range__input': 'form-control'
+            <ais-price-range class="pb-2" attribute-name="price"
+              currency="" from-placeholder="$min" to-placeholder="$max"
+              :classNames="{
+                'ais-price-range': 'form-group',
+                'ais-price-range__input': 'form-control'
               }">
               <h3 slot="header">Price</h3>
             </ais-price-range>
@@ -109,18 +113,19 @@
 
 <script>
 
+import StaticConfig from '../StaticConfig'
+
 export default {
   name: "home",
   components: {
   },
   data: function () {
     return {
-      facets: [
-        { name: "category", label: "Category"},
-        { name: "material", label: "Material"},
-        { name: "color", label: "Color"},
-        { name: "max_players", label: "Max Players"}
-      ]
+      algoliaParameters: {
+        filters: StaticConfig.filters
+        // filters: "category:Minifigs AND material:Plastic"
+      },
+      facets: StaticConfig.facets
     }
   },
   methods: {

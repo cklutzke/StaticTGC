@@ -15,26 +15,27 @@ GETTING STARTED ---------------------
 
 TODO List --------------------------
 
+Create config file that specifies a site name, search refinement facets, CSS styling
+  Try setting up a config to limit all searches sitewide
+  Config what items to show in search results: e.g. Category vs Department
+  Derive nav menu from categories
+    Can I differentiate games (and _only_ games) by Department?
+  Nav items should list departments, deals?, help / support, account stuff, about
+
 Plan an appropriate landing page.
   Clean up the header
     Redesign the Log In controls.
     Hide the Motto at size MD.
-  Get motto and nav items and refinement facets from a config object.
-    Nav items should list departments, deals?, help / support, account stuff, about
   Create a category page view page
     It would be great if we could filter by department for items with no category, or category == "Indie Games"
   DEFECTS I DON'T KNOW HOW TO FIX
     The default sort order shows blank components and a zombie circus clown. Not very enticing.
     Results are moved below the facets if size is in LG range (992px to 1199px)
     Does stupid restructuring crap if search displays 1 or 0 results. Test with "dindaelus".
+    Allow the user to enter a Price search refinement value less than $1.
+    Show the Price search refinement controls on a single line.
     Results-per-page control should have a label.
     Paging through search results isn't managed by the router.
-
-Create config file that specifies a site name, search refinement facets, CSS styling
-  Try setting up a config to limit all searches sitewide
-  Config what items to show in search results: e.g. Category vs Department
-  Derive nav menu from categories
-    Can I differentiate games (and _only_ games) by Department?
 
 Update product viewer to work with both parts and games.
 

@@ -12,7 +12,7 @@
       </b-navbar-brand>
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav>
-          <b-nav-text>[This site's motto here.]</b-nav-text>
+          <b-nav-text>{{motto}}</b-nav-text>
           <b-nav-item href="#">[Configured Nav Item]</b-nav-item>
           <b-nav-item to="/about">About</b-nav-item>
         </b-navbar-nav>
@@ -46,6 +46,7 @@ const StaticTGC_api_key_id = "034F04B4-7329-11E8-BA7A-8BFD93A6FE1D";
 
 import TGCSession from '@/components/TGCSession.vue'
 import TGCCartIcon from '@/components/TGCCartIcon.vue'
+import StaticConfig from './StaticConfig'
 
 export default {
   name: 'App',
@@ -55,6 +56,7 @@ export default {
   },
   data() {
     return {
+      motto: StaticConfig.motto,
       session: wing.object({
         with_credentials: false,
         create_api: "/api/session",
