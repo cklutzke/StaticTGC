@@ -15,12 +15,12 @@ GETTING STARTED ---------------------
 
 TODO List --------------------------
 
-Create config file that specifies a site name, search refinement facets, CSS styling
-  Try setting up a config to limit all searches sitewide
-  Config what items to show in search results: e.g. Category vs Department
+Alter the site configuration and appearance based on a single StaticConfig.js file.
   Derive nav menu from categories
     Can I differentiate games (and _only_ games) by Department?
   Nav items should list departments, deals?, help / support, account stuff, about
+  Configure CSS styling.
+  Set meta tags.
 
 Plan an appropriate landing page.
   Clean up the header
@@ -29,11 +29,11 @@ Plan an appropriate landing page.
   Create a category page view page
     It would be great if we could filter by department for items with no category, or category == "Indie Games"
   DEFECTS I DON'T KNOW HOW TO FIX
-    The default sort order shows blank components and a zombie circus clown. Not very enticing.
     Results are moved below the facets if size is in LG range (992px to 1199px)
     Does stupid restructuring crap if search displays 1 or 0 results. Test with "dindaelus".
     Allow the user to enter a Price search refinement value less than $1.
     Show the Price search refinement controls on a single line.
+    Exclude "None" checkboxes from the facet refinement lists.
     Results-per-page control should have a label.
     Paging through search results isn't managed by the router.
 
@@ -58,13 +58,11 @@ Add gift certificate features.
 
 Eliminate flashes of unstyled / unarranged content.
 
-Update the page title and meta tags based from router changes. https://alligator.io/vuejs/vue-router-modify-head/
+Update the title and SEO / Open Graph meta tags based upon Vue Router changes. https://alligator.io/vuejs/vue-router-modify-head/
 
 ALGOLIA PRODUCT SEARCH RESULT ATTRIBUTES ----------------------------
 
 attributesToIndex       => ['name', 'department_name', 'category', 'keywords', 'description', 'short_description', 'designer_name', 'if_you_like', 'cool_factor_1','cool_factor_2','cool_factor_3','genre','theme','setting','audience','primary_mechanic', 'color', 'material', 'department_uri_part'],
-
-attributesForFaceting   => ['asset_types','asset_set','license_type','digital_delivery','contains_nudity','contains_substance_abuse','contains_gore','contains_profanity','contains_sexuality','designer_id','related','components_used','id','vintage','discontinued','low_volume','staff_pick','featured','on_sale','price','department', 'min_age', 'min_players', 'max_players','play_time','genre','theme','setting','audience','primary_mechanic','if_you_like', 'color', 'material', 'category','family','object_type','size_in_mm','number_of_sides','usable_in_games'],
 
 numericAttributesToIndex=> ['last_sale_date','date_published','accolade_count', 'bayesian_ranking', 'min_players', 'max_players', 'featured', 'showcase', 'sales', 'price', 'vintage', 'discontinued', 'on_sale', 'low_volume','size_in_mm','number_of_sides',],
 

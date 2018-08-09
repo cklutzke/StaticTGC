@@ -48,6 +48,9 @@ import TGCSession from '@/components/TGCSession.vue'
 import TGCCartIcon from '@/components/TGCCartIcon.vue'
 import StaticConfig from './StaticConfig'
 
+document.title = StaticConfig.title;
+// TODO: Add code here to set the meta description and meta properties for the site.
+
 export default {
   name: 'App',
   components: {
