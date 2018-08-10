@@ -16,18 +16,14 @@ GETTING STARTED ---------------------
 TODO List --------------------------
 
 Alter the site configuration and appearance based on a single StaticConfig.js file.
-  Derive nav menu from categories
-    Can I differentiate games (and _only_ games) by Department?
-  Nav items should list departments, deals?, help / support, account stuff, about
+  Nav items should list departments (only for games), categories, deals, help / support, account stuff, about
   Configure CSS styling.
-  Set meta tags.
 
 Plan an appropriate landing page.
   Clean up the header
     Redesign the Log In controls.
     Hide the Motto at size MD.
-  Create a category page view page
-    It would be great if we could filter by department for items with no category, or category == "Indie Games"
+  Move common code from Category.vue and Home.vue to a component.
   DEFECTS I DON'T KNOW HOW TO FIX
     Results are moved below the facets if size is in LG range (992px to 1199px)
     Does stupid restructuring crap if search displays 1 or 0 results. Test with "dindaelus".

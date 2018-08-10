@@ -7,10 +7,10 @@
         app-id="5V0BUFDX8J"
         api-key="a25692c12853aea7a77c5a7125498512"
         index-name="products"
-        :query-parameters="algoliaParameters">
+        :query-parameters="algoliaParameters()">
         <b-row>
           <b-col sm="3" lg="auto">
-            <h1>Search</h1>
+            <h1>{{ categoryName }}</h1>
             <ais-price-range class="pb-2" attribute-name="price"
               currency="" from-placeholder="$min" to-placeholder="$max"
               :classNames="{
@@ -19,7 +19,7 @@
               }">
               <h3 slot="header">Price</h3>
             </ais-price-range>
-            <template v-for="facet in facets">
+            <template v-for="facet in facets()">
               <ais-refinement-list class="pb-2" :attribute-name="facet.name" :classNames="{
                 'ais-refinement-list': 'form-check',
                 'ais-refinement-list__checkbox': 'form-check-input',
@@ -116,18 +116,32 @@
 import StaticConfig from '../StaticConfig'
 
 export default {
-  name: "home",
+  name: "category",
+  props: [
+    'categoryName'
+  ],
   components: {
   },
   data: function () {
     return {
-      algoliaParameters: {
-        filters: StaticConfig.filters
-      },
-      facets: StaticConfig.facets
     }
   },
   methods: {
+    algoliaParameters() {
+      let categoryName = "'" + this.categoryName + "'";
+      let filter = StaticConfig.filters;
+      if (filter.length == 0) {
+        filter = "category:" + categoryName;
+      } else {
+        filter = filter + " AND category:" + categoryName;
+      }
+      return {
+        filters: filter
+      };
+    },
+    facets() {
+      return StaticConfig.facets.filter(f => f.name != "category");
+    },
     onPageChange() {
       window.scrollTo(0, 0);
     }

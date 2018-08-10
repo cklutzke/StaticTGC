@@ -2,7 +2,7 @@
 const StaticConfig1 = {
   title: "The Complete Game Crafter",
   motto: "Everything in one place.",
-  filter: "",
+  filters: "",
   facets: [
     { name: "department", label: "Department"},
     { name: "category", label: "Category"},
@@ -57,12 +57,11 @@ const StaticConfig4 = {
     { name: "theme", label: "Theme"},
     { name: "setting", label: "Setting"},
     { name: "primary_mechanic", label: "Mechanic"},
-    { name: "if_you_like", label: "If You Like..."}    
+    { name: "if_you_like", label: "If You Like..."}
   ]
 }
 
-
-export default StaticConfig4;
+export default StaticConfig1;
 
 /*
 attributesForFaceting   => ['asset_types','asset_set','license_type','digital_delivery',
