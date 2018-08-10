@@ -13,19 +13,9 @@
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav>
           <b-nav-text>{{motto}}</b-nav-text>
-
-          <!-- <template v-for="facet in facets">
-            <ais-refinement-list class="pb-2" :attribute-name="facet.name" :classNames="{
-              'ais-refinement-list': 'form-check',
-              'ais-refinement-list__checkbox': 'form-check-input',
-              'ais-refinement-list__label': 'form-check-label',
-              'ais-refinement-list__count': 'badge badge-secondary'
-              }">
-              <h3 slot="header">{{facet.label}}</h3>
-            </ais-refinement-list>
-          </template> -->
-          
-          <b-nav-item href="#">[Configured Nav Item]</b-nav-item>
+          <template v-for="navItem in navs">
+            <b-nav-item :to="'/nav/'+navItem.route">{{navItem.title}}</b-nav-item>
+          </template>
           <b-nav-item to="/about">About</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
@@ -72,6 +62,7 @@ export default {
   data() {
     return {
       motto: StaticConfig.motto,
+      navs: StaticConfig.navs,
       session: wing.object({
         with_credentials: false,
         create_api: "/api/session",

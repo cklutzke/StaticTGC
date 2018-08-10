@@ -10,7 +10,7 @@
         :query-parameters="algoliaParameters()">
         <b-row>
           <b-col sm="3" lg="auto">
-            <h1>{{ categoryName }}</h1>
+            <h1>{{ config.title }}</h1>
             <ais-price-range class="pb-2" attribute-name="price"
               currency="" from-placeholder="$min" to-placeholder="$max"
               :classNames="{
@@ -116,31 +116,29 @@
 import StaticConfig from '../StaticConfig'
 
 export default {
-  name: "category",
+  name: "stgcnav",
   props: [
-    'categoryName'
+    'navName'
   ],
   components: {
   },
   data: function () {
     return {
+      config: StaticConfig.navs.filter(nav => nav.route == this.navName)[0]
     }
   },
   methods: {
     algoliaParameters() {
-      let categoryName = "'" + this.categoryName + "'";
       let filter = StaticConfig.filters;
       if (filter.length == 0) {
-        filter = "category:" + categoryName;
+        filter = this.config.filters;
       } else {
-        filter = filter + " AND category:" + categoryName;
+        filter = filter + " AND " + this.config.filters;
       }
-      return {
-        filters: filter
-      };
+      return {filters: filter};
     },
     facets() {
-      return StaticConfig.facets.filter(f => f.name != "category");
+      return this.config.facets;
     },
     onPageChange() {
       window.scrollTo(0, 0);

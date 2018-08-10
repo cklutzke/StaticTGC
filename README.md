@@ -16,14 +16,15 @@ GETTING STARTED ---------------------
 TODO List --------------------------
 
 Alter the site configuration and appearance based on a single StaticConfig.js file.
-  Nav items should list departments (only for games), categories, deals, help / support, account stuff, about
   Configure CSS styling.
+  DEFECTS
+    Switching directly from one nav option to another doesn't refresh the page.
 
 Plan an appropriate landing page.
   Clean up the header
     Redesign the Log In controls.
     Hide the Motto at size MD.
-  Move common code from Category.vue and Home.vue to a component.
+  Move common code from STGCNav.vue and Home.vue to a component.
   DEFECTS I DON'T KNOW HOW TO FIX
     Results are moved below the facets if size is in LG range (992px to 1199px)
     Does stupid restructuring crap if search displays 1 or 0 results. Test with "dindaelus".
@@ -54,7 +55,7 @@ Add gift certificate features.
 
 Eliminate flashes of unstyled / unarranged content.
 
-Update the title and SEO / Open Graph meta tags based upon Vue Router changes. https://alligator.io/vuejs/vue-router-modify-head/
+Update the title and SEO / Open Graph meta tags based upon config and Vue Router changes. https://alligator.io/vuejs/vue-router-modify-head/
 
 ALGOLIA PRODUCT SEARCH RESULT ATTRIBUTES ----------------------------
 

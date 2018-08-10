@@ -4,13 +4,36 @@ const StaticConfig1 = {
   motto: "Everything in one place.",
   filters: "",
   facets: [
-    { name: "department", label: "Department"},
+    { name: "department", label: "Departments"},
     { name: "category", label: "Category"},
     { name: "family", label: "Family"},
     { name: "object_type", label: "Type"},
     { name: "material", label: "Material"},
     { name: "color", label: "Color"},
     { name: "max_players", label: "Max Players"}
+  ],
+  navs: [
+    {
+      title:"Peeps",
+      route:"people",
+      filters:"category:Minifigs OR category:People",
+      facets:[
+        { name: "material", label: "Material"},
+        { name: "color", label: "Color"},
+        { name: "size_in_mm", label: "Size (mm)"}
+      ]
+    },
+    {
+      title:"Dice",
+      route:"dice",
+      filters: "category:Dice",
+      facets: [
+        { name: "number_of_sides", label: "# of Sides"},
+        { name: "material", label: "Material"},
+        { name: "color", label: "Color"},
+        { name: "size_in_mm", label: "Size (mm)"}
+      ]
+    }
   ]
 }
 
@@ -25,9 +48,42 @@ const StaticConfig2 = {
   motto: "Figures and people for your games.",
   filters: "category:Minifigs OR category:People",
   facets: [
+    { name: "family", label: "Family"},
     { name: "material", label: "Material"},
     { name: "color", label: "Color"},
     { name: "size_in_mm", label: "Size (mm)"}
+  ],
+  navs: [
+    {
+      title:"Redfolk",
+      route:"red",
+      filters:"color:Red",
+      facets:[
+        { name: "material", label: "Material"},
+        { name: "size_in_mm", label: "Size (mm)"}
+      ]
+    },
+    {
+      title:"Woodfolk",
+      route:"wood",
+      filters: "material:Wood",
+      facets: [
+        { name: "family", label: "Family"},
+        { name: "color", label: "Color"},
+        { name: "size_in_mm", label: "Size (mm)"}
+      ]
+    },
+    {
+      title:"Sale",
+      route:"sale",
+      filters: "on_sale:1 OR featured:1",
+      facets: [
+        { name: "family", label: "Family"},
+        { name: "material", label: "Material"},
+        { name: "color", label: "Color"},
+        { name: "size_in_mm", label: "Size (mm)"}
+      ]
+    }
   ]
 }
 
@@ -46,7 +102,7 @@ const StaticConfig3 = {
 const StaticConfig4 = {
   title: "Indy Game Webstore",
   motto: "Games from people like you.",
-  filters: "category:'Indie Games' AND contains_nudity:0",
+  filters: "category:'Indie Games'",
   facets: [
     { name: "min_age", label: "Age"},
     { name: "play_time", label: "Play Time (minutes)"},
@@ -57,11 +113,13 @@ const StaticConfig4 = {
     { name: "theme", label: "Theme"},
     { name: "setting", label: "Setting"},
     { name: "primary_mechanic", label: "Mechanic"},
-    { name: "if_you_like", label: "If You Like..."}
-  ]
+    { name: "if_you_like", label: "If You Like..."},
+    { name: "featured", label: "Featured"}
+  ],
+  navs: []
 }
 
-export default StaticConfig1;
+export default StaticConfig3;
 
 /*
 attributesForFaceting   => ['asset_types','asset_set','license_type','digital_delivery',

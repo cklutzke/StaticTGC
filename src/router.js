@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
 import Product from './views/Product.vue'
-import Category from './views/Category.vue'
+import STGCNav from './views/STGCNav.vue'
 
 Vue.use(Router)
 
@@ -15,9 +15,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/category/:categoryName',
-      name: 'category',
-      component: Category,
+      path: '/nav/:navName',
+      name: 'stgcnav',
+      component: STGCNav,
       props: true
     },
     {
