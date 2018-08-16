@@ -1,3 +1,8 @@
+
+<!--
+  This is the main view of the application.
+-->
+
 <template>
   <div class="home">
     <!-- TODO: Put a promotional banner / carousel here. -->
@@ -50,6 +55,13 @@
             </ais-search-box>
             <form class="search-controls form-inline justify-content-between">
               <ais-stats />
+              <!--
+                Per the article below, I decided to give the user the option to either viewer
+                one screen of results (8) or a whole bunch of them (50). There doesn't seem
+                to be any reason to offer other options.
+                https://www.nngroup.com/articles/item-list-view-all/
+                TODO: This control should have a label.
+              -->
               <ais-results-per-page-selector id="ais-rpps" :options="[8, 50]"
                 class="form-control"/>
               <!-- <label for="ais-rpps" style="padding-left: 10px;">results per page</label> -->
@@ -67,28 +79,41 @@
                         <div v-if="result.featured" class="ribbon ribbon-warning text-uppercase">Featured</div>
                         <div v-if="result.staff_pick" class="ribbon ribbon-success text-uppercase">Staff Pick</div>
                         <div v-if="result.vintage" class="ribbon ribbon-info text-uppercase">Vintage</div>
+                        <!--
+                          I added a ribbon with a count of accolades, which may or may not be useful
+                          (I feel like social proof is important), but it was at least interesting as an exercise.
+                        -->
                         <div v-if="result.accolade_count" class="ribbon ribbon-primary text-uppercase">{{ result.accolade_count }} Accolades</div>
                         <img :src="result.preview_uri" alt="product" class="img-fluid">
                     </router-link>
                     <div class="title">
                       <small class="text-muted">
-                        <!-- <a href="[% IF dept_uri %][% dept_uri %][% ELSE %]{{department_uri_part}}[% END %]"> -->
+                        <!--
+                          I didn't like "Indie Games" as a category so there's special handling here to
+                          display the department (card games, board games, dice games) instead.
+                          TODO: The label here should link to a nav view.
+                        -->
                         {{ result.category && result.category!="Indie Games" ? result.category : result.department_name }}
-                        <!-- </a> -->
                       </small>
                       <router-link :to="'/product/' + result.sku_id">
                         <h3 class="h6 text-uppercase no-margin-bottom">{{result.name}}</h3>
                       </router-link>
+
+                      <!--
+                        I'm not sure why the original code I translated below showed a button normally but a link if the
+                        product is on sale. I've preserved the if/else structure here to figure it out later.
+                      -->
                       <button v-if="!result.on_sale"
                         class="btn btn-secondary btn-sm float-right">
-                        <!-- onclick="tgc.add_to_cart('{{sku_id}}', this, {{over18}})" -->
+                        <!-- TODO: onclick="tgc.add_to_cart('{{sku_id}}', this, {{over18}})" -->
                         <i class="fas fa-cart-plus"></i> Add to Cart
                       </button>
                       <a v-else href="#"
                         class="btn btn-secondary btn-sm float-right">
-                        <!-- {{shop_uri}}[% IF dept_uri %]?dept_uri=[% dept_uri %]&dept_name=[% dept_name %][% END %] -->
+                        <!-- TODO: {{shop_uri}}[% IF dept_uri %]?dept_uri=[% dept_uri %]&dept_name=[% dept_name %][% END %] -->
                         <i class="fas fa-cart-plus"></i> Add to Cart
                       </a>
+
                       <span class="price text-muted">{{result.price|currency}}</span>
                     </div>
                   </div>

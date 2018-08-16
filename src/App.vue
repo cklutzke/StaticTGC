@@ -1,10 +1,11 @@
+<!--
+  This file is the heart of the application. The template is always displayed,
+  showing the navbar and footer, but the router-view is switched out depending
+  on the current navigation selection / URL.
+-->
+
 <template>
   <div id="app">
-    <!-- TODO
-      SM: Hamburger Nav, Logo, Cart
-      MD: Logo, Motto, Account <br/> Nav, Cart
-      LG+: Logo, Motto, Nav, Cart, Account
-    -->
     <b-navbar toggleable="sm" type="dark" variant="primary" sticky>
       <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
       <b-navbar-brand to="/">
@@ -12,6 +13,7 @@
       </b-navbar-brand>
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav>
+          <!-- TODO: Hide the motto at size MD. -->
           <b-nav-text>{{motto}}</b-nav-text>
           <template v-for="navItem in navs">
             <b-nav-item :to="'/nav/'+navItem.route">{{navItem.title}}</b-nav-item>
@@ -152,26 +154,5 @@ export default {
 </script>
 
 <style>
-
-/* #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-} */
 
 </style>

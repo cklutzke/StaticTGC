@@ -1,4 +1,10 @@
 
+<!--
+  Displays the current count of items in the shopping cart. For use in the nav bar.
+
+  TODO: Make the popover display the cart contents.
+-->
+
 <template>
   <div>
     <b-card id="cart-card">

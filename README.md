@@ -15,24 +15,17 @@ GETTING STARTED ---------------------
 
 TODO List --------------------------
 
-Alter the site configuration and appearance based on a single StaticConfig.js file.
-  Configure CSS styling.
-  DEFECTS
-    Switching directly from one nav option to another doesn't refresh the page.
+BEFORE HANDING PROJECT OVER:
+  Add comments.
 
-Plan an appropriate landing page.
-  Clean up the header
-    Redesign the Log In controls.
-    Hide the Motto at size MD.
-  Move common code from STGCNav.vue and Home.vue to a component.
-  DEFECTS I DON'T KNOW HOW TO FIX
-    Results are moved below the facets if size is in LG range (992px to 1199px)
-    Does stupid restructuring crap if search displays 1 or 0 results. Test with "dindaelus".
-    Allow the user to enter a Price search refinement value less than $1.
-    Show the Price search refinement controls on a single line.
-    Exclude "None" checkboxes from the facet refinement lists.
-    Results-per-page control should have a label.
-    Paging through search results isn't managed by the router.
+DEFECTS I DON'T KNOW HOW TO FIX
+  Switching directly from one nav option to another doesn't refresh the page.
+  Results are moved below the facets if size is in LG range (992px to 1199px)
+  Does stupid restructuring crap if search displays 1 or 0 results. Test with "dindaelus".
+  The user cannot enter a Price search refinement value less than $1.
+  The Price search refinement controls should display on a single line.
+  Exclude "None" checkboxes from the game facet refinement lists (if_you_like, primary_mechanic, theme, setting, genre).
+  Paging through search results isn't managed by the router.
 
 Update product viewer to work with both parts and games.
 
@@ -44,8 +37,6 @@ Complete shopping process.
   Allow user to remove items from cart.
   Provide an option to pin the cart to the right side of the screen.
 
-Create router-based product pages.
-
 Enable various account operations: create account, view receipts, etc.
   Can I pull these features from tgc.vue.js?
 
@@ -53,55 +44,4 @@ Add help / support features.
 
 Add gift certificate features.
 
-Eliminate flashes of unstyled / unarranged content.
-
 Update the title and SEO / Open Graph meta tags based upon config and Vue Router changes. https://alligator.io/vuejs/vue-router-modify-head/
-
-ALGOLIA PRODUCT SEARCH RESULT ATTRIBUTES ----------------------------
-
-attributesToIndex       => ['name', 'department_name', 'category', 'keywords', 'description', 'short_description', 'designer_name', 'if_you_like', 'cool_factor_1','cool_factor_2','cool_factor_3','genre','theme','setting','audience','primary_mechanic', 'color', 'material', 'department_uri_part'],
-
-numericAttributesToIndex=> ['last_sale_date','date_published','accolade_count', 'bayesian_ranking', 'min_players', 'max_players', 'featured', 'showcase', 'sales', 'price', 'vintage', 'discontinued', 'on_sale', 'low_volume','size_in_mm','number_of_sides',],
-
-customRanking           => ['desc(rank)', 'asc(name)', 'desc(sales)', ],
-
-_highlightResult [object]
-badge
-category
-color
-contains_gore
-contains_nudity
-contains_profanity
-contains_sexuality
-contains_substance_abuse
-date_published
-department[array]
-department_name
-department_uri_part
-description
-discontinued
-family
-id
-keywords
-last_sale_date
-low_volume
-material
-name
-number_of_sides
-objectID
-object_type
-on_sale
-photo_uri
-preview_uri
-price
-quantity
-quantity_available_for_games
-quantity_available_for_shop
-rank
-sales
-shop_uri
-size_in_mm
-sku_id
-staff_pick
-usable_in_games
-vintage

@@ -1,6 +1,8 @@
 
 <!--
-Eliminate defects:
+  Displays some attributes of a selected product. Only set up for game
+  pieces at this point, would need more customization for other kinds of
+  products, such as games.
 
 Replicate existing TGC functionality:
   <h2>TODO: Other [Wood Meeples]</h2>

@@ -1,12 +1,11 @@
 
 <!--
 
-Eliminate defects:
+Displays the current contents of the shopping cart.
 
-Replicate existing TGC functionality:
+Obviously there's a lot left to do here.
+
 TODO: Display the cart contents in a Bootstrap-Vue table.
-
-Add improvements:
 
 -->
 

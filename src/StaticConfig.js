@@ -1,4 +1,32 @@
 
+/*
+  This file contols the configuration of the site. It should be the only code file
+  you need to change to set up a different static website.
+
+  The components depend upon a StaticConfig object being exported from this file
+  with the following attributes:
+    * title: The website title, as displayed in the browser title / tab bar.
+    * motto: A small tagline to be displayed in the nav bar when there is room.
+    * filters: The baseline Algolia search filters for this site.
+    * facets: An arroy of search refinement facets provided in the Home view.
+    * navs: An array of virtual "departments" for the site, each with the following attributes:
+      * title: The name of the department, as displayed in the nav bar.
+      * route: The Vue Router parameter value that causes this department to be displayed
+          when the URL is [website]/#/nav/[route]
+      * filters: Additional filters for this department, ANDed to the site's baseline filters.
+      * facets: An array of search refinement facets specific to this department.
+
+  Obviously you could add other attributes for further refinement.
+    * Maybe specific meta tags could be added here for SEO purposes.
+    * Maybe CSS definitions could be included here to customize each site's visual design.
+
+  You will probably want to customize the following asset files for each
+  static website:
+    * favicon.ico
+    * logo-small.png
+    * logo.png
+*/
+
 const StaticConfig1 = {
   title: "The Complete Game Crafter",
   motto: "Everything in one place.",
@@ -10,7 +38,8 @@ const StaticConfig1 = {
     { name: "object_type", label: "Type"},
     { name: "material", label: "Material"},
     { name: "color", label: "Color"},
-    { name: "max_players", label: "Max Players"}
+    { name: "max_players", label: "Max Players"},
+    { name: "if_you_like", label: "If you like..."}
   ],
   navs: [
     {
@@ -39,12 +68,6 @@ const StaticConfig1 = {
 
 const StaticConfig2 = {
   title: "Little People",
-  metaDescription: "A specialized site from The Game Crafter for finding pieces to represent \
-    people and other creatures in your games.",
-  metaProperties: [
-    // Add whatever meta properties here you like.
-    {property: "og:site_name", content: "Little People"}
-  ],
   motto: "Figures and people for your games.",
   filters: "category:Minifigs OR category:People",
   facets: [
@@ -119,7 +142,7 @@ const StaticConfig4 = {
   navs: []
 }
 
-export default StaticConfig3;
+export default StaticConfig1;
 
 /*
 attributesForFaceting   => ['asset_types','asset_set','license_type','digital_delivery',

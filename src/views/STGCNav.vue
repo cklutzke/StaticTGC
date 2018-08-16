@@ -1,7 +1,12 @@
+
+<!--
+  This is the view for a "department" selected from the nav bar.
+  TODO: This view is nearly identical to Home.vue. The common code should be extracted to
+    a shared component instead.
+-->
+
 <template>
   <div class="home">
-    <!-- TODO: Put a promotional banner / carousel here. -->
-
     <b-container fluid>
       <ais-index
         app-id="5V0BUFDX8J"

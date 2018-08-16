@@ -1,3 +1,10 @@
+
+<!--
+  This view displays information for a selected product on the left side,
+  and the current contents of the shopping cart on the right.
+    If the cart is empty, the product display fills the entire page.
+-->
+
 <template>
   <div>
     <b-container>

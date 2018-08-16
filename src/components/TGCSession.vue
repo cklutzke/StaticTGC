@@ -1,5 +1,7 @@
 <!--
 The TGCSession component provides controls for the user to start and end a session.
+TODO: The controls here are pretty ugly and should be completely redesigned
+  for better display in the nav bar.
 TODO: Allow login via Facebook
 TODO: Allow user to create a new account
  -->
@@ -48,7 +50,7 @@ export default {
     return {
       showLoginControls: false,
       username: "carl@phos.net", //TEMP
-      password: "statictgc"
+      password: ""
     }
   },
   computed: {
