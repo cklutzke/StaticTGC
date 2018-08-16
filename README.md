@@ -13,13 +13,18 @@ GETTING STARTED ---------------------
 
 5. Run "vue ui" to start the vue-cli console. Import the project. Run the Serve task. This will serve the project on localhost:8080 with hot reloading.
 
+NOTE:
+The following files are automatically generated and maintained by the Vue CLI / UI tools. They probably shouldn't be edited directly.
+  .gitignore
+  babel.config.js
+  package.json - Seems to do the work that people previously needed to do manually for Webpack.
+  package-lock.json - Seems to provide additional support details for package.json.
+  vue.config.js - The settings from Vue UI's project configuration tab.
+
 TODO List --------------------------
 
-BEFORE HANDING PROJECT OVER:
-  Add comments.
-
 DEFECTS I DON'T KNOW HOW TO FIX
-  Switching directly from one nav option to another doesn't refresh the page.
+  Switching directly from one nav / department option to another doesn't refresh the page.
   Results are moved below the facets if size is in LG range (992px to 1199px)
   Does stupid restructuring crap if search displays 1 or 0 results. Test with "dindaelus".
   The user cannot enter a Price search refinement value less than $1.
