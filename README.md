@@ -21,9 +21,7 @@ The following files are automatically generated and maintained by the Vue CLI / 
 * package-lock.json - Seems to provide additional support details for package.json.
 * vue.config.js - The settings from Vue UI's project configuration tab.
 
-## TODO List --------------------------
-
-### DEFECTS I DON'T KNOW HOW TO FIX:
+## Defects I Don't Know How to Fix
 * Switching directly from one nav / department option to another doesn't refresh the page.
 * Results are moved below the facets if size is in LG range (992px to 1199px)
 * Does stupid restructuring crap if search displays 1 or 0 results. Test with "dindaelus".
@@ -32,21 +30,21 @@ The following files are automatically generated and maintained by the Vue CLI / 
 * Exclude "None" checkboxes from the game facet refinement lists (if_you_like, primary_mechanic, theme, setting, genre).
 * Paging through search results isn't managed by the router.
 
-- [ ] Update product viewer to work with both parts and games.
+## TODO List --------------------------
 
-- [ ] Complete shopping process:
-  - [ ] Allow user to add to cart from price button on product card.
-- [ ] Allow a customer to complete a purchase.
-    * Assume we will redirect to The Game Crafter to complete the purchase.
-- [ ] Display full cart contents in a popover from the cart icon.
-- [ ] Allow user to remove items from cart.
-- [ ] Provide an option to pin the cart to the right side of the screen.
+Update product viewer to work with both parts and games.
 
-- [ ] Enable various account operations: create account, view receipts, etc.
-  * Can I pull these features from tgc.vue.js?
+Complete shopping process:
+* Allow user to add to cart from price button on product card.
+* Allow a customer to complete a purchase. (Assume we will redirect to The Game Crafter to complete the purchase.)
+* Display full cart contents in a popover from the cart icon.
+* Allow user to remove items from cart.
+* Provide an option to pin the cart to the right side of the screen.
 
-- [ ] Add help / support features.
+Enable various account operations: create account, view receipts, etc. (Can we pull these features from tgc.vue.js?)
 
-- [ ] Add gift certificate features.
+Add help / support features.
 
-- [ ] Update the title and SEO / Open Graph meta tags based upon config and Vue Router changes. https://alligator.io/vuejs/vue-router-modify-head/
+Add gift certificate features.
+
+Update the title and SEO / Open Graph meta tags based upon config and Vue Router changes. https://alligator.io/vuejs/vue-router-modify-head/
